@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import MenuSvg from "./svg/menu";
 import Search from "./svg/search";
 import ThemeDark from "./svg/theme-dark";
