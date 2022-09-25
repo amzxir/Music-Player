@@ -1,6 +1,10 @@
+import React from "react";
+
 const App = () => {
   return ( 
-    <>lorem</>
+    <React.Fragment>
+      
+    </React.Fragment>
   );
 }
 

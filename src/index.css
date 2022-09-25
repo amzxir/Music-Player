@@ -1,3 +1,14 @@
+:root{
+    --dark:#091227;
+    --light:#EAF0FF;
+    --white:#ffffff;
+}
+
 html,body,#root{
     margin: 0;
+}
+
+body{
+    background-color: var(--dark);
+    color: var(--white);
 }
