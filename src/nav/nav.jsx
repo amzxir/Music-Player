@@ -4,6 +4,12 @@ import MenuSvg from "./svg/menu";
 import Search from "./svg/search";
 import ThemeDark from "./svg/theme-dark";
 import ExitSvg from "./svg/exit";
+import UserSvg from "./svg/user";
+import HeartSvg from "./svg/heart";
+import LanguageSvg from "./svg/language";
+import ContactSvg from "./svg/contact";
+import FaqSvg from "./svg/faq";
+import SettingSvg from "./svg/setting";
 
 
 
@@ -40,12 +46,14 @@ const Sidbar = styled.div({
                 listStyle:'none',
                 padding:'0',
                 '&> li':{
-                    marginBottom:'2rem',
+                    marginBottom:'1.4rem',
 
                     '&> a':{
                         color:'#DFE8FF',
                         fontWeight:'500',
-                        fontSize:'20px',
+                        fontSize:'18px',
+                        marginLeft:'15px',
+                        fontFamily:'Gilroy',
                     }
                 }
             }
@@ -53,7 +61,13 @@ const Sidbar = styled.div({
     },
 
     '& .ml-auto':{
-        marginLeft:'-200px'
+        marginLeft:'-150px',
+        transition:'.5s',
+    },
+
+    '& .mr-auto':{
+        marginLeft:'0px',
+        transition:'1.5s',
     },
 
 })
@@ -75,14 +89,20 @@ const Navbar = () => {
                 width:openSidbar?'200px':'0px',
                 transition:openSidbar?'1s':'1s'
             }}>
-                <div className={openSidbar?' ':'ml-auto'}>
+                <div className={openSidbar?'mr-auto':'ml-auto'}>
                     <div className="header">
                         <button className="btn" onClick={()=> (setOpenSidbar(false))}><ExitSvg/></button>
                         <button className="btn"><ThemeDark/></button>
                     </div>
                     <div className="body">
                         <ul>
-                            <li><a href="#">Profile</a></li>
+                            <li><UserSvg/><a href="#">Profile</a></li>
+                            <li><HeartSvg/><a href="#">Liked Songs</a></li>
+                            <li><LanguageSvg/><a href="#">Language</a></li>
+                            <li><ContactSvg/><a href="#">Contact us</a></li>
+                            <li><FaqSvg/><a href="#">FAQs</a></li>
+                            <li><SettingSvg/><a href="#">Settings</a></li>
+
                         </ul>
                     </div>
                 </div>
