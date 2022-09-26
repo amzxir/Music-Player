@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Home from "./component/home/home";
 import Navbar from "./component/nav/nav";
 
 const Container = styled.div({
@@ -11,7 +12,7 @@ const App = () => {
     <React.Fragment>
       <Navbar/>
       <Container>
-
+        <Home/>
       </Container>
     </React.Fragment>
   );
