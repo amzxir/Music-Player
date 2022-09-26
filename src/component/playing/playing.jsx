@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import img1 from './img/Mask Group.png';
+import Next from './svg/next.jsx';
+import Prev from './svg/prev.jsx';
+import Pause from './svg/pause.jsx';
+
+
 
 const Playing = styled.nav({
     position:'fixed',
@@ -11,12 +16,12 @@ const Playing = styled.nav({
 
     '&> div.playing':{
         display:'flex',
-        justifyContent:'space-between',
-
-
+        flexWrap:'row',
+        alignItems:'center',
 
         '&> div.flexStart':{
-
+            flex:'0 0 auto',
+            width:'60%',
             display:'flex',
             alignItems:'center',
 
@@ -47,7 +52,13 @@ const Playing = styled.nav({
             }
         },
 
-        '&> div.flexend':{
+
+        '&> div.flexEnd':{
+            display:'flex',
+            flex:'0 0 auto',
+            width:'30%',
+            justifyContent:'space-around',
+
 
         }
     }
@@ -67,6 +78,9 @@ const Play = () => {
                     </div>
                 </div>
                 <div className="flexEnd">
+                    <div><Next/></div>
+                    <div><Pause/></div>
+                    <div><Prev/></div>
                 </div>
             </div>
         </Playing>
