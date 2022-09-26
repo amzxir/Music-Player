@@ -6,7 +6,8 @@ import Pause from './svg/pause.jsx';
 
 
 
-const Playing = styled.nav({
+
+const Playing = styled.div({
     position:'fixed',
     bottom:'0',
     right:'0',
@@ -65,6 +66,7 @@ const Playing = styled.nav({
 })
 
 const Play = () => {
+
     return ( 
         <Playing>
             <div className="playing">

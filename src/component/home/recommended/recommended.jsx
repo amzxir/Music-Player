@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styled from "styled-components";
+import Play from "../../playing/playing";
 import img1 from './img/Mask Group.png'
 import img2 from './img/Mask Group1.png'
+
 
 
 const Recommen = styled.div({
@@ -53,16 +56,24 @@ const Recommen = styled.div({
                 }
             }
         }
+    },
+
+    '&> .none':{
+        display:'none',
     }
 })
 
 const items = [
-    {img:img1 , name:'Monsters Go Bump' , title:'ERIKA RECINOS'},
-    {img:img2 , name:'Moment Apart' , title:'ODESZA'},
+    {img:img1 , name:'Monsters Go Bump' , title:'ERIKA RECINOS' , id:'1'},
+    {img:img2 , name:'Moment Apart' , title:'ODESZA' , id:'2'},
 
 ]
 
+
 const Recommended = () => {
+    
+    const [openPlay , setOpenPlay]=useState(false)
+
     return ( 
         <Recommen>
             <div className="title">
@@ -71,7 +82,7 @@ const Recommended = () => {
             <div className="scroll">
                 {items.map((i , index)=> {
                     return(
-                        <div key={index} className="card">
+                        <div key={index} className="card" onClick={()=> setOpenPlay(!openPlay)}>
                             <div className="img">
                                 <img src={i.img} alt="" />
                             </div>
@@ -83,6 +94,15 @@ const Recommended = () => {
                     )
                 })}
             </div>
+
+            <div style={{ 
+                visibility:openPlay?'visible':'hidden',
+                opacity:openPlay?'1':'0',
+                transition:'.6s',
+             }}>
+                <Play/>
+            </div>
+
         </Recommen>
     );
 }
