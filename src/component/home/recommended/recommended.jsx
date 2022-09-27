@@ -98,7 +98,7 @@ const Recommended = () => {
             <div style={{ 
                 visibility:openPlay?'visible':'hidden',
                 opacity:openPlay?'1':'0',
-                transition:'.6s',
+                transition:'.5s',
              }}>
                 <Play/>
             </div>

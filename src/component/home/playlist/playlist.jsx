@@ -60,8 +60,8 @@ const Plist = styled.div({
 })
 
 const items = [
-    {img:img1 , name:'Believer' , title:'IMAGINE DRAGON'},
-    {img:img2 , name:'Shortwave' , title:'RYAN GRIGDRY'},
+    {id:1 , img:img1 , name:'Believer' , title:'IMAGINE DRAGON'},
+    {id:2 , img:img2 , name:'Shortwave' , title:'RYAN GRIGDRY'},
 
 ]
 
@@ -93,7 +93,7 @@ const Playist = () => {
             <div style={{ 
                 visibility:openPlay?'visible':'hidden',
                 opacity:openPlay?'1':'0',
-                transition:'.6s',
+                transition:'.5s',
              }}>
                 <Play/>
             </div>
