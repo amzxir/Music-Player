@@ -34,3 +34,17 @@ a{
     border-radius: 0.25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+/* @keyframes raiseUp {
+    0%   {height: 50px;}
+
+    100% {height: 100%;}
+  }
+
+
+  .raiseUp{
+    animation-name: raiseUp;
+    animation-duration: 700ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  } */
