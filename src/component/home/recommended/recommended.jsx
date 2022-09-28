@@ -1,6 +1,4 @@
-import { useState } from "react";
 import styled from "styled-components";
-import Play from "../../playing/playing";
 import img1 from './img/Mask Group.png'
 import img2 from './img/Mask Group1.png'
 
@@ -64,16 +62,14 @@ const Recommen = styled.div({
 })
 
 const items = [
-    {img:img1 , name:'Monsters Go Bump' , title:'ERIKA RECINOS' , id:'1'},
-    {img:img2 , name:'Moment Apart' , title:'ODESZA' , id:'2'},
+    {id:1 , img:img1 , name:'Monsters Go Bump' , title:'ERIKA RECINOS'},
+    {id:2 , img:img2 , name:'Moment Apart' , title:'ODESZA'},
 
 ]
 
 
-const Recommended = () => {
+const Recommended = (props) => {
     
-    const [openPlay , setOpenPlay]=useState(false)
-
     return ( 
         <Recommen>
             <div className="title">
@@ -82,7 +78,7 @@ const Recommended = () => {
             <div className="scroll">
                 {items.map((i , index)=> {
                     return(
-                        <div key={index} className="card" onClick={()=> setOpenPlay(!openPlay)}>
+                        <div key={index} className="card" onClick={()=> props.onMusicClick(i)}>
                             <div className="img">
                                 <img src={i.img} alt="" />
                             </div>
@@ -93,14 +89,6 @@ const Recommended = () => {
                         </div>
                     )
                 })}
-            </div>
-
-            <div style={{ 
-                visibility:openPlay?'visible':'hidden',
-                opacity:openPlay?'1':'0',
-                transition:'.5s',
-             }}>
-                <Play/>
             </div>
 
         </Recommen>

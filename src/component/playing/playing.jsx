@@ -1,8 +1,11 @@
 import styled from "styled-components";
-import img1 from './img/Mask Group.png';
 import Next from './svg/next.jsx';
 import Prev from './svg/prev.jsx';
 import Pause from './svg/pause.jsx';
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
+
 
 
 
@@ -31,14 +34,15 @@ const Playing = styled.div({
                 justifyContent:'start',
     
                 '&> img':{
-                    width:'65px'
+                    width:'65px',
+                    height:'65px'
                 }
             },
 
             '&> div.content':{
                 marginLeft:'10px',
                 '&> p':{
-                    fontSize:'18px',
+                    fontSize:'16px',
                     fontWeight:'500',
                     lineHeight:'22px',
                     marginTop:'0',
@@ -65,23 +69,29 @@ const Playing = styled.div({
     }
 })
 
-const Play = () => {
+const Play = (props) => {
 
-    return ( 
+    const [play , setPlay] = useState(false);
+
+    const handelPlayMusic = () => {
+        setPlay(!play);
+    }
+
+    return props.currentMusic && ( 
         <Playing>
             <div className="playing">
                 <div className="flexStart">
                     <div className="img">
-                        <img src={img1} alt="" />
+                        <img src={props?.currentMusic?.img} alt="" />
                     </div>
                     <div className="content">
-                        <p>Chaff & Dust</p>
-                        <small>HYONNA</small>
+                        <p>{props?.currentMusic?.name}</p>
+                        <small>{props?.currentMusic?.title}</small>
                     </div>
                 </div>
                 <div className="flexEnd">
                     <div><Next/></div>
-                    <div><Pause/></div>
+                    <div onClick={handelPlayMusic}>{play?<Pause/>:<FontAwesomeIcon style={{ fontSize:'18px' }} icon={faPlayCircle}/>}</div>
                     <div><Prev/></div>
                 </div>
             </div>
