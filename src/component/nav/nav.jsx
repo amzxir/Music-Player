@@ -10,6 +10,8 @@ import LanguageSvg from "./svg/language";
 import ContactSvg from "./svg/contact";
 import FaqSvg from "./svg/faq";
 import SettingSvg from "./svg/setting";
+import { NavLink } from "react-router-dom";
+
 
 
 
@@ -96,13 +98,12 @@ const Navbar = () => {
                     </div>
                     <div className="body">
                         <ul>
-                            <li><UserSvg/><a href="#">Profile</a></li>
+                            {/* <li><UserSvg/><NavLink to='/'>Profile</NavLink></li> */}
                             <li><HeartSvg/><a href="#">Liked Songs</a></li>
                             <li><LanguageSvg/><a href="#">Language</a></li>
                             <li><ContactSvg/><a href="#">Contact us</a></li>
                             <li><FaqSvg/><a href="#">FAQs</a></li>
                             <li><SettingSvg/><a href="#">Settings</a></li>
-
                         </ul>
                     </div>
                 </div>
