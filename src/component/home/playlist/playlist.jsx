@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import img1 from './img/Mask Group.png'
 import img2 from './img/Mask Group1.png'
@@ -17,9 +16,11 @@ const Plist = styled.div({
     },
 
     '&> div.scroll':{
-        overflow:'auto',
+        overflowX:'auto',
         display:'flex',
         whiteSpace:'nowrap',
+        scrollSnapType:'x mandatory',
+        scrollBehavior:"smooth",
 
         "::-webkit-scrollbar":{
             display:'none',
@@ -61,6 +62,7 @@ const Plist = styled.div({
 const items = [
     {id:1 , img:img1 , name:'Believer' , title:'IMAGINE DRAGON'},
     {id:2 , img:img2 , name:'Shortwave' , title:'RYAN GRIGDRY'},
+
 
 ]
 

@@ -16,9 +16,11 @@ const Recommen = styled.div({
     },
 
     '&> div.scroll':{
-        overflow:'auto',
+        overflowX:'auto',
         display:'flex',
         whiteSpace:'nowrap',
+        scrollSnapType:'x mandatory',
+        scrollBehavior:"smooth",
 
         "::-webkit-scrollbar":{
             display:'none',
