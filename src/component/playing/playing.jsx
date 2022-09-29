@@ -6,10 +6,6 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 
-
-
-
-
 const Playing = styled.div({
     position:'fixed',
     bottom:'0',
@@ -66,7 +62,8 @@ const Playing = styled.div({
 
 
         }
-    }
+    },
+
 })
 
 const Play = (props) => {
@@ -79,6 +76,7 @@ const Play = (props) => {
 
     return props.currentMusic && ( 
         <Playing>
+            <input type="range" className="range" />
             <div className="playing">
                 <div className="flexStart">
                     <div className="img">

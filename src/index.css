@@ -48,3 +48,15 @@ a{
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   } */
+
+
+  .range{
+    position: absolute;
+    background-color: #585D6A;
+    width: 100%;
+    opacity: 1;
+    height: 4px;
+    margin: 0 auto;
+  }
+
+  
