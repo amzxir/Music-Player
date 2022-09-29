@@ -59,6 +59,7 @@ a{
     margin: 0 auto;
   }
 
-  
-
-  
+.mx-auto{
+  margin-right: auto;
+  margin-left: auto;
+}

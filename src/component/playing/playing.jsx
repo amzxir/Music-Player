@@ -5,6 +5,8 @@ import Pause from './svg/pause.jsx';
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
+import { NavLink } from "react-router-dom";
+
 
 const Playing = styled.div({
     position:'fixed',
@@ -19,7 +21,7 @@ const Playing = styled.div({
         flexWrap:'row',
         alignItems:'center',
 
-        '&> div.flexStart':{
+        '&> a.flexStart':{
             flex:'0 0 auto',
             width:'60%',
             display:'flex',
@@ -37,6 +39,7 @@ const Playing = styled.div({
 
             '&> div.content':{
                 marginLeft:'10px',
+                color:'#fff',
                 '&> p':{
                     fontSize:'16px',
                     fontWeight:'500',
@@ -51,6 +54,7 @@ const Playing = styled.div({
                     fontWeight:'400',
                 }
             }
+
         },
 
 
@@ -78,15 +82,15 @@ const Play = (props) => {
         <Playing>
             <input type="range" className="range" />
             <div className="playing">
-                <div className="flexStart">
-                    <div className="img">
-                        <img src={props?.currentMusic?.img} alt="" />
-                    </div>
-                    <div className="content">
-                        <p>{props?.currentMusic?.name}</p>
-                        <small>{props?.currentMusic?.title}</small>
-                    </div>
-                </div>
+                <NavLink to='/playing_now' className="flexStart">
+                        <div className="img">
+                            <img src={props?.currentMusic?.img} alt="" />
+                        </div>
+                        <div className="content">
+                            <p>{props?.currentMusic?.name}</p>
+                            <small>{props?.currentMusic?.title}</small>
+                        </div>
+                </NavLink>
                 <div className="flexEnd">
                     <div><Next/></div>
                     <div onClick={handelPlayMusic}>{play?<Pause/>:<FontAwesomeIcon style={{ fontSize:'18px' }} icon={faPlayCircle}/>}</div>

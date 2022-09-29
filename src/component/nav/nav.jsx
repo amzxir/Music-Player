@@ -10,13 +10,13 @@ import LanguageSvg from "./svg/language";
 import ContactSvg from "./svg/contact";
 import FaqSvg from "./svg/faq";
 import SettingSvg from "./svg/setting";
-import { NavLink } from "react-router-dom";
+import { NavLink , useLocation } from "react-router-dom";
 
 
 
 
 const Nav = styled.nav({
-    padding:'15px 20px',
+    padding:'20px 20px',
     boxShadow:'0 .125rem .25rem rgba(0,0,0,.075)',
     position:'sticky',
     display:'flex',
@@ -79,6 +79,12 @@ const Navbar = () => {
 
     const [openSidbar , setOpenSidbar] = useState(false);
 
+    
+    const { pathname } = useLocation();
+    console.log(pathname);
+    if (pathname ==="/playing_now") return null;
+
+
     return ( 
         <Nav>
             <button className="btn" onClick={()=> (setOpenSidbar(!openSidbar))}>
@@ -98,7 +104,7 @@ const Navbar = () => {
                     </div>
                     <div className="body">
                         <ul>
-                            {/* <li><UserSvg/><NavLink to='/'>Profile</NavLink></li> */}
+                            <li><UserSvg/><NavLink to='/'>Profile</NavLink></li>
                             <li><HeartSvg/><a href="#">Liked Songs</a></li>
                             <li><LanguageSvg/><a href="#">Language</a></li>
                             <li><ContactSvg/><a href="#">Contact us</a></li>
