@@ -11,8 +11,11 @@ html,body,#root{
 
 body{
     font-family: sans-serif;
-    background-color: var(--dark);
-    color: var(--white);
+}
+
+#root{
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 a{
@@ -62,4 +65,14 @@ a{
 .mx-auto{
   margin-right: auto;
   margin-left: auto;
+}
+
+@media only screen and (min-width: 450px) {
+  #root {
+    max-width: 400px;
+    height: 100vh;
+    overflow: auto;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
