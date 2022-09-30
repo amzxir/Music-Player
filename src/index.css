@@ -14,8 +14,8 @@ body{
 }
 
 #root{
-  background-color: var(--dark);
-  color: var(--white);
+    background-color: var(--dark);
+    color: var(--white);
 }
 
 a{
