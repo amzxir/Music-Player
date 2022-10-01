@@ -7,10 +7,12 @@
 html,body,#root{
     margin: 0;
     width: 100%;
+
 }
 
 body{
     font-family: sans-serif;
+    height: 100vh;
 }
 
 #root{
@@ -74,5 +76,11 @@ a{
     overflow: auto;
     margin-right: auto;
     margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    background-color: var(--dark);
   }
 }
