@@ -24,7 +24,7 @@ const NavBack = () => {
     const navigare = useNavigate();
 
     const {pathname} = useLocation();
-    console.log(pathname);
+    // console.log(pathname);
     if(pathname === '/') return null;
 
     return ( 

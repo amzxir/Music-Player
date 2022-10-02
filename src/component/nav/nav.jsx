@@ -81,7 +81,7 @@ const Navbar = () => {
 
     
     const { pathname } = useLocation();
-    console.log(pathname);
+    // console.log(pathname);
     if (pathname ==="/playing_now") return null;
 
 
