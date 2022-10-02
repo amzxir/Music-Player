@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Home from "./component/home/home";
 import Navbar from "./component/nav/nav";
-import { Route , Routes , useLocation } from "react-router-dom";
+import { Route , Routes } from "react-router-dom";
 import PlayingNow from "./component/playingnow/playing-now";
 import NavBack from "./component/nav/nav-back";
 
@@ -11,13 +11,13 @@ const Container = styled.div({
 })
 
 
-const App = (location) => {
-
+const App = () => {
   return ( 
     <React.Fragment>
       <Navbar/>
       <NavBack/>
       <Container>
+        
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/playing_now" element={<PlayingNow/>} />

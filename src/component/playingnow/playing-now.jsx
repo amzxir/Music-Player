@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import styled from "styled-components";
 import img1 from './img/Mask Group.png';
 import Like from "./svg/like";
@@ -7,8 +10,6 @@ import Shuffel from "./svg/shuffel";
 import Sound from "./svg/sound";
 import Next from "./svg/next";
 import Prev from "./svg/prev";
-
-
 
 const PlayNow = styled.div({
     marginTop:'15px',
@@ -97,8 +98,14 @@ const PlayNow = styled.div({
         }
     }
 })
-
 const PlayingNow = () => {
+
+    const [play , setplay] = useState(false);
+
+    const playMusic = () => {
+        setplay(!play)
+    }
+
     return ( 
         <PlayNow>
             <div className="pnow">
@@ -125,7 +132,7 @@ const PlayingNow = () => {
                         </div>
                         <div className="musicBtn">
                             <div><Next/></div>
-                            <div><Pause/></div>
+                            <div onClick={playMusic}>{play?<Pause/>:<FontAwesomeIcon style={{ fontSize:'30px' }} icon={faPlayCircle}/>}</div>
                             <div><Prev/></div>
                         </div>
                     </div>

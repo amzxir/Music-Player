@@ -78,6 +78,7 @@ const Play = (props) => {
         setPlay(!play);
     }
 
+
     return props.currentMusic && ( 
         <Playing>
             <input type="range" className="range" />
