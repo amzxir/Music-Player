@@ -113,7 +113,6 @@ const PlayingNow = (props) => {
 
     return ( 
         <PlayNow>
-            {console.log(location)}
             <div className="pnow">
                 <div className="img">
                     <img src={location.state.img} alt="" />

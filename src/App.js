@@ -5,6 +5,7 @@ import Navbar from "./component/nav/nav";
 import { Route , Routes } from "react-router-dom";
 import PlayingNow from "./component/playingnow/playing-now";
 import NavBack from "./component/nav/nav-back";
+import PlayList from "./component/playlist/play-list";
 
 const Container = styled.div({
   padding:'0px 20px 0px 20px'
@@ -14,6 +15,8 @@ const Container = styled.div({
 const App = () => {
 
   const [currentMusic , setCurrentMusic] = useState();
+
+  const datas = {name:'test'}
   
   return ( 
     <React.Fragment>
@@ -23,7 +26,8 @@ const App = () => {
         
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/playing_now" element={<PlayingNow currentMusic={currentMusic}/>} />
+          <Route exact path="/playing_now" state={{ datas }} element={<PlayingNow currentMusic={currentMusic}/>} />
+          <Route exact path="/play_list" element={<PlayList/>} />
         </Routes>
 
       </Container>

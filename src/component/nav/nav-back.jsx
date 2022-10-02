@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useLocation , useNavigate } from "react-router-dom";
 import BackIcon from "./svg/back";
+import Option from "./svg/option";
 
 
 const Back = styled.nav({
@@ -21,16 +22,30 @@ const Back = styled.nav({
 
 const NavBack = () => {
 
+    const nameOne = 'Playing Now'
+
+    // const nameTwo = 'Liked Songs'
+
     const navigare = useNavigate();
 
     const {pathname} = useLocation();
     // console.log(pathname);
     if(pathname === '/') return null;
 
+    function changeNameNav(){
+        if(pathname === '/playing_now'){
+            return nameOne;
+        } else if(pathname === '/play_list'){
+            return null;
+        }
+    }
+
+
     return ( 
         <Back>
             <div onClick={()=> navigare(-1)}><BackIcon/></div>
-            <div className="mx-auto">Playing Now</div>
+            <div className="mx-auto">{changeNameNav()}</div>
+            <div>{pathname !=='/playing_now' ? <Option/> :''}</div>
         </Back>
     );
 }

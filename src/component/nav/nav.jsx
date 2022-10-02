@@ -25,7 +25,7 @@ const Nav = styled.nav({
 })
 
 const Sidbar = styled.div({
-    position:'absolute',
+    position:'fixed',
     boxShadow:'0 0.125rem 0.25rem rgb(177 148 148 / 24%)',
     left:'0',
     top:'0',
@@ -82,7 +82,9 @@ const Navbar = () => {
     
     const { pathname } = useLocation();
     // console.log(pathname);
-    if (pathname ==="/playing_now") return null;
+    if (pathname === "/playing_now")return null;
+    if (pathname === "/play_list")return null;
+
 
 
     return ( 
@@ -105,7 +107,7 @@ const Navbar = () => {
                     <div className="body">
                         <ul>
                             <li><UserSvg/><NavLink to='/'>Profile</NavLink></li>
-                            <li><HeartSvg/><a href="#">Liked Songs</a></li>
+                            <li><HeartSvg/><NavLink to='/play_list'>Liked Songs</NavLink></li>
                             <li><LanguageSvg/><a href="#">Language</a></li>
                             <li><ContactSvg/><a href="#">Contact us</a></li>
                             <li><FaqSvg/><a href="#">FAQs</a></li>
