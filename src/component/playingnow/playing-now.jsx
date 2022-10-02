@@ -100,10 +100,9 @@ const PlayNow = styled.div({
         }
     }
 })
-const PlayingNow = (props) => {
+const PlayingNow = () => {
 
     const location = useLocation();
-
 
     const [play , setplay] = useState(false);
 

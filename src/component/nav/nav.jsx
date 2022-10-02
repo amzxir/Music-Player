@@ -101,13 +101,13 @@ const Navbar = () => {
             }}>
                 <div className={openSidbar?'mr-auto':'ml-auto'}>
                     <div className="header">
-                        <button className="btn" onClick={()=> (setOpenSidbar(false))}><ExitSvg/></button>
+                        <button className="btn" onClick={()=> (setOpenSidbar(!openSidbar))}><ExitSvg/></button>
                         <button className="btn"><ThemeDark/></button>
                     </div>
                     <div className="body">
                         <ul>
                             <li><UserSvg/><NavLink to='/'>Profile</NavLink></li>
-                            <li><HeartSvg/><NavLink to='/play_list'>Liked Songs</NavLink></li>
+                            <li onClick={()=> (setOpenSidbar(false))}><HeartSvg/><NavLink to='/play_list'>Liked Songs</NavLink></li>
                             <li><LanguageSvg/><a href="#">Language</a></li>
                             <li><ContactSvg/><a href="#">Contact us</a></li>
                             <li><FaqSvg/><a href="#">FAQs</a></li>

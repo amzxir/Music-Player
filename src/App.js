@@ -15,8 +15,6 @@ const Container = styled.div({
 const App = () => {
 
   const [currentMusic , setCurrentMusic] = useState();
-
-  const datas = {name:'test'}
   
   return ( 
     <React.Fragment>
@@ -26,8 +24,8 @@ const App = () => {
         
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/playing_now" state={{ datas }} element={<PlayingNow currentMusic={currentMusic}/>} />
-          <Route exact path="/play_list" element={<PlayList/>} />
+          <Route exact path="/playing_now" element={<PlayingNow currentMusic={currentMusic}/>} />
+          <Route exact path="/play_list" element={<PlayList currentMusic={currentMusic}/>} />
         </Routes>
 
       </Container>
