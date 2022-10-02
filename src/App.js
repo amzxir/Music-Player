@@ -12,6 +12,9 @@ const Container = styled.div({
 
 
 const App = () => {
+
+  const [currentMusic , setCurrentMusic] = useState();
+  
   return ( 
     <React.Fragment>
       <Navbar/>
@@ -20,7 +23,7 @@ const App = () => {
         
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/playing_now" element={<PlayingNow/>} />
+          <Route exact path="/playing_now" element={<PlayingNow currentMusic={currentMusic}/>} />
         </Routes>
 
       </Container>

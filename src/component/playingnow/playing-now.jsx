@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
+import {useLocation} from 'react-router-dom'
+
 import styled from "styled-components";
 import img1 from './img/Mask Group.png';
 import Like from "./svg/like";
@@ -98,7 +100,10 @@ const PlayNow = styled.div({
         }
     }
 })
-const PlayingNow = () => {
+const PlayingNow = (props) => {
+
+    const location = useLocation();
+
 
     const [play , setplay] = useState(false);
 
@@ -108,15 +113,16 @@ const PlayingNow = () => {
 
     return ( 
         <PlayNow>
+            {console.log(location)}
             <div className="pnow">
                 <div className="img">
-                    <img src={img1} alt="" />
+                    <img src={location.state.img} alt="" />
                 </div>
                 <div className="item">
                     <div className="content">
                         <div className="name">
-                            <h1>Moment Apart</h1>
-                            <p>Odesza</p>
+                            <h1>{location.state.name}</h1>
+                            <p>{location.state.title}</p>
                         </div>
                         <div className="like"><Like/></div>
                     </div>
