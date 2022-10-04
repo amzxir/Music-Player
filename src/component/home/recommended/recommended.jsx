@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import img1 from './img/Mask Group.png'
-import img2 from './img/Mask Group1.png'
-
+import img2 from './img/1.png'
+import img3 from './img/2.png'
+import img4 from './img/4.png'
+import img5 from './img/5.png'
 
 
 const Recommen = styled.div({
@@ -66,6 +68,9 @@ const Recommen = styled.div({
 const items = [
     {id:1 , img:img1 , name:'Monsters Go Bump' , title:'ERIKA RECINOS'},
     {id:2 , img:img2 , name:'Moment Apart' , title:'ODESZA'},
+    {id:3 , img:img3 , name:'lorem' , title:'RYAN GRIGDRY'},
+    {id:4 , img:img4 , name:'Believer' , title:'RYAN GRIGDRY'},
+    {id:5 , img:img5 , name:'lorem' , title:'RYAN GRIGDRY'},
 
 ]
 

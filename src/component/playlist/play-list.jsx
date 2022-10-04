@@ -1,10 +1,4 @@
 import styled from "styled-components";
-import img1 from './img/POSTER_ Imagine Dragons (Believer) ALBUM Cover.png'
-import img2 from './img/Mask Group1.png'
-import img3 from './img/grunge.png'
-import img4 from './img/12 New Artists You Need To Check Out On Spotify - Society19.png'
-import img5 from './img/Dream On - Art Design Cover.png'
-import img6 from './img/Imagine Dragons - Origins (Vinyl).png'
 
 
 const PalyLists = styled.div({

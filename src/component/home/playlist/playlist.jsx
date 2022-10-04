@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import img1 from './img/Mask Group.png'
-import img2 from './img/Mask Group1.png'
+import img2 from './img/1.png'
+import img3 from './img/2.png'
+import img4 from './img/4.png'
+import img5 from './img/5.png'
+import img6 from './img/5.png'
+
 
 
 
@@ -62,6 +67,12 @@ const Plist = styled.div({
 const items = [
     {id:1 , img:img1 , name:'Believer' , title:'IMAGINE DRAGON'},
     {id:2 , img:img2 , name:'Shortwave' , title:'RYAN GRIGDRY'},
+    {id:3 , img:img3 , name:'lorem' , title:'RYAN GRIGDRY'},
+    {id:4 , img:img4 , name:'Believer' , title:'RYAN GRIGDRY'},
+    {id:5 , img:img5 , name:'lorem' , title:'RYAN GRIGDRY'},
+    {id:6 , img:img6 , name:'Shortwave' , title:'RYAN GRIGDRY'},
+
+
 
 
 ]
