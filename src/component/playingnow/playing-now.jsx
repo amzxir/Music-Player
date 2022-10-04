@@ -2,9 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import {useLocation} from 'react-router-dom'
-
 import styled from "styled-components";
-import img1 from './img/Mask Group.png';
 import Like from "./svg/like";
 import Pause from "./svg/pause";
 import Reapet from "./svg/reapet";
