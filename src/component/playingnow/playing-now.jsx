@@ -98,7 +98,7 @@ const PlayNow = styled.div({
         }
     }
 })
-const PlayingNow = () => {
+const PlayingNow = (props) => {
 
     const location = useLocation();
 
@@ -120,7 +120,7 @@ const PlayingNow = () => {
                             <h1>{location.state.name}</h1>
                             <p>{location.state.title}</p>
                         </div>
-                        <div className="like"><Like/></div>
+                        <div className="like" onClick={()=> props.sharingState(location.state)}><Like/></div>
                     </div>
                     <div className="option">
                         <div className="msAuto"><Shuffel/></div>

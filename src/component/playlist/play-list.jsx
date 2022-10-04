@@ -57,30 +57,24 @@ const PalyLists = styled.div({
     }
 })
 
-const data = [
-    {id:1 , img:img1 , name:'Believer' , title:'IMAGINE DRAGON'},
-    {id:2 , img:img2 , name:'Shortwave' , title:'RYAN GRIGDRY'},
-    {id:3 , img:img3 , name:'Dream On' , title:'ROGER TERRY'},
-    {id:4 , img:img4 , name:'Origins' , title:'IMAGINE DRAGON'},
-    {id:5 , img:img5 , name:'Dream On' , title:'IRYAN GRIGDRY'},
-    {id:6 , img:img6 , name:'Shortwave' , title:'ROGER TERRY'},
+const data = [{}]
 
-]
 
-const PlayList = () => {
+const PlayList = (props) => {
+    
     return ( 
         <PalyLists>
             <p>Liked Songs</p>
             <div className="row">
-                {data.map((i , index)=> {
+                {data.map((index)=> {
                     return (
-                    <div key={index} className="col6">
+                    <div key={index} className="col6" onClick={()=> props.sharingState(props.currentMusic)}>
                         <div className="img">
-                            <img src={i.img} alt="" />
+                            <img src={props?.currentMusic?.img} alt="" />
                         </div>
                         <div className="content">
-                            <h1>{i.name}</h1>
-                            <p>{i.title}</p>
+                            <h1>{props?.currentMusic?.name}</h1>
+                            <p>{props?.currentMusic?.title}</p>
                         </div>
                     </div>
                     )
