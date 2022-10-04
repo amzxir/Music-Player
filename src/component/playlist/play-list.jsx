@@ -42,7 +42,7 @@ const PalyLists = styled.div({
 
                 '& p':{
                     fontSize:'10px',
-                    lineHeight:'400',
+                    fontWeight:'400',
                     lineHeight:'12px',
                     color:'rgba(165, 192, 255, 0.7)'
                 }
@@ -53,27 +53,28 @@ const PalyLists = styled.div({
 
 const data = [{}]
 
-
 const PlayList = (props) => {
-    
+
     return ( 
         <PalyLists>
             <p>Liked Songs</p>
-            <div className="row">
-                {data.map((index)=> {
-                    return (
-                    <div key={index} className="col6" onClick={()=> props.sharingState(props.currentMusic)}>
-                        <div className="img">
-                            <img src={props?.currentMusic?.img} alt="" />
+            {props.currentMusic && (
+                <div className="row">
+                    {data.map((index)=> {
+                        return (
+                        <div key={index} className="col6" onClick={()=> props.sharingState(props.currentMusic)}>
+                            <div className="img">
+                                <img src={props?.currentMusic?.img} alt="" />
+                            </div>
+                            <div className="content">
+                                <h1>{props?.currentMusic?.name}</h1>
+                                <p>{props?.currentMusic?.title}</p>
+                            </div>
                         </div>
-                        <div className="content">
-                            <h1>{props?.currentMusic?.name}</h1>
-                            <p>{props?.currentMusic?.title}</p>
-                        </div>
-                    </div>
-                    )
-                })}
-            </div>
+                        )
+                    })}
+                </div>
+            )}
         </PalyLists>
     );
 }

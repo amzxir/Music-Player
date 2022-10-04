@@ -1,8 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Play from "../playing/playing";
-import PlayingNow from "../playingnow/playing-now";
-import PlayList from "../playlist/play-list";
 import Playist from "./playlist/playlist";
 import Recommended from "./recommended/recommended";
 
