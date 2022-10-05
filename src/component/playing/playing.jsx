@@ -9,11 +9,19 @@ import { NavLink } from "react-router-dom";
 
 const Playing = styled.div({
     position:'fixed',
+    width:'100%',
     bottom:'0',
     right:'0',
     left:'0',
     backgroundColor:'#091227',
     zIndex:'10000000',
+
+    '@media (min-width: 450px)': {
+        position:'absolute',
+        marginRight:'auto',
+        marginLeft:'auto',
+        maxWidth:'25rem',
+    },
 
     '&> div.playing':{
         display:'flex',

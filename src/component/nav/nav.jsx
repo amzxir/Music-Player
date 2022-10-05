@@ -34,6 +34,11 @@ const Sidbar = styled.div({
     zIndex:'10000',
     backgroundColor:'#091227',
     transition:'5s',
+
+    '@media (min-width: 450px)': {
+        position:'absolute',
+    },
+    
     '&> div':{
         '&> div.header':{
             padding:'20px 20px 0px 20px',
