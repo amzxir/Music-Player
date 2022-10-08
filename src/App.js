@@ -51,8 +51,8 @@ const App = () => {
         
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/playing_now/:userId" element={<PlayingNow setUserID={setUserID} likedHandler={likedHandler} currentMusic={currentMusic} sharingState={sharingState}/>} />
-          <Route exact path="/play_list"  element={<PlayList liked={liked} currentMusic={currentMusic} sharingState={sharingState}/>} />
+          <Route exact path="/playing_now/:userId" element={<PlayingNow setUserID={setUserID} likedHandler={likedHandler}/>} />
+          <Route exact path="/play_list"  element={<PlayList liked={liked} onMusicClick={onSetMusic}/>} />
         </Routes>
 
         {pathname === '/play_list' ?  <Play currentMusic={currentMusic} onMusicClick={onSetMusic}/> : null }

@@ -57,15 +57,15 @@ const PlayList = (props) => {
         <PalyLists>
             <p>Liked Songs</p>
                 <div className="row">
-                    {props.liked.map((index)=> {
+                    {props.liked.map((i , index)=> {
                         return (
-                        <div key={index} className="col6" onClick={()=> props.sharingState(props.currentMusic)}>
+                        <div key={index} className="col6" onClick={()=> props.onMusicClick(i)}>
                             <div className="img">
-                                <img src={index?.img} alt="" />
+                                <img src={i?.img} alt="" />
                             </div>
                             <div className="content">
-                                <h1>{index?.name}</h1>
-                                <p>{index?.title}</p>
+                                <h1>{i?.name}</h1>
+                                <p>{i?.title}</p>
                             </div>
                         </div>
                         )
