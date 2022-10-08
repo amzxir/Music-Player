@@ -80,16 +80,15 @@ const Sidbar = styled.div({
 })
 
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     const [openSidbar , setOpenSidbar] = useState(false);
 
-    
+
     const { pathname } = useLocation();
     // console.log(pathname);
-    if (pathname === "/playing_now")return null;
+    if (pathname === `/playing_now/${props.userID}` )return null;
     if (pathname === "/play_list")return null;
-
 
 
     return ( 

@@ -20,6 +20,8 @@ const App = () => {
 
   const [currentMusic , setCurrentMusic] = useState();
 
+  const [userIDProps , setUSerIDProps]=useState();
+  
   const sharingState = (data) => {
     console.log(data)
     setCurrentMusic(data)
@@ -30,19 +32,22 @@ const App = () => {
     setCurrentMusic(music);
   }
 
-
+  const setUserID = (id) => {
+    setUSerIDProps(id)
+  }
 
   return ( 
     <React.Fragment>
-      <Navbar/>
+      <Navbar userID={userIDProps}/>
       <NavBack/>
       <Container>
         
         <Routes>
           <Route exact path="/" element={<Home/>} />
-          <Route exact path="/playing_now" element={<PlayingNow currentMusic={currentMusic} sharingState={sharingState}/>} />
+          <Route exact path="/playing_now/:userId" element={<PlayingNow setUserID={setUserID} currentMusic={currentMusic} sharingState={sharingState}/>} />
           <Route exact path="/play_list" element={<PlayList currentMusic={currentMusic} sharingState={sharingState}/>} />
         </Routes>
+
         {pathname === '/play_list' ?  <Play currentMusic={currentMusic} onMusicClick={onSetMusic}/> : null }
       </Container>
     </React.Fragment>

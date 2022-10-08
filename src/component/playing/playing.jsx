@@ -85,15 +85,13 @@ const Play = (props) => {
         setPlay(!play);
     }
 
-
-
     const data = props.currentMusic
 
     return props.currentMusic && ( 
         <Playing>
             <input type="range" className="range" />
             <div className="playing">
-                <NavLink to='/playing_now' state={data} className="flexStart" onClick={()=> props.onMusicClick(data)}>
+                <NavLink to={`/playing_now/${props.currentMusic.id}`} state={data} className="flexStart" onClick={()=> props.onMusicClick(data)}>
                         <div className="img">
                             <img src={props?.currentMusic?.img} alt="" />
                         </div>

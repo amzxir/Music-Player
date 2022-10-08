@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
-import {useLocation} from 'react-router-dom'
+import {useLocation, useParams} from 'react-router-dom'
 import styled from "styled-components";
 import Like from "./svg/like";
 import Pause from "./svg/pause";
@@ -99,7 +99,9 @@ const PlayNow = styled.div({
     }
 })
 const PlayingNow = (props) => {
-
+    
+    const { userId } = useParams();
+    
     const location = useLocation();
 
     const [play , setplay] = useState(false);
@@ -107,6 +109,10 @@ const PlayingNow = (props) => {
     const playMusic = () => {
         setplay(!play)
     }
+
+    useEffect(()=> {
+        props.setUserID(userId)
+    },[userId])
 
     return ( 
         <PlayNow>
