@@ -51,30 +51,26 @@ const PalyLists = styled.div({
     }
 })
 
-const data = [{}]
-
 const PlayList = (props) => {
 
     return ( 
         <PalyLists>
             <p>Liked Songs</p>
-            {props.currentMusic && (
                 <div className="row">
-                    {data.map((index)=> {
+                    {props.liked.map((index)=> {
                         return (
                         <div key={index} className="col6" onClick={()=> props.sharingState(props.currentMusic)}>
                             <div className="img">
-                                <img src={props?.currentMusic?.img} alt="" />
+                                <img src={index?.img} alt="" />
                             </div>
                             <div className="content">
-                                <h1>{props?.currentMusic?.name}</h1>
-                                <p>{props?.currentMusic?.title}</p>
+                                <h1>{index?.name}</h1>
+                                <p>{index?.title}</p>
                             </div>
                         </div>
                         )
                     })}
                 </div>
-            )}
         </PalyLists>
     );
 }

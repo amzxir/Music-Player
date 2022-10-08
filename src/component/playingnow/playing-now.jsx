@@ -126,7 +126,7 @@ const PlayingNow = (props) => {
                             <h1>{location.state.name}</h1>
                             <p>{location.state.title}</p>
                         </div>
-                        <div className="like" onClick={()=> props.sharingState(location.state)}><Like/></div>
+                        <div className="like" onClick={()=> props.likedHandler(location.state)}><Like/></div>
                     </div>
                     <div className="option">
                         <div className="msAuto"><Shuffel/></div>
