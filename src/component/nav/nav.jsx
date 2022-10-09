@@ -33,7 +33,7 @@ const Sidbar = styled.div({
     bottom:'0',
     height:'100vh',
     zIndex:'10000',
-    backgroundColor:'#091227',
+    // backgroundColor:'#091227',
     transition:'5s',
 
     '@media (min-width: 450px)': {
@@ -85,6 +85,12 @@ const Navbar = (props) => {
 
     const [openSidbar , setOpenSidbar] = useState(false);
 
+    const [themeDark , setThemeDark] = useState(false);
+
+    const changeThemeDark = () => {
+        setThemeDark(!themeDark)
+    }
+
 
     const { pathname } = useLocation();
     // console.log(pathname);
@@ -100,16 +106,15 @@ const Navbar = (props) => {
             <button className="btn">
                 <Search/>
             </button>
-            <Sidbar style={{ 
+            <Sidbar className="sidbar" style={{ 
                 width:openSidbar?'200px':'0px',
                 transition:openSidbar?'1s':'1s'
             }}>
                 <div className={openSidbar?'mr-auto':'ml-auto'}>
                     <div className="header">
                         <button className="btn" onClick={()=> setOpenSidbar(!openSidbar)}><ExitSvg/></button>
-                        <button className="btn" onClick={()=> props.changeTheme()}>
-                            <ThemeDark/> 
-                            {/* <Moon/> */}
+                        <button className="btn" onClick={()=> props.changeTheme(changeThemeDark())}>
+                            {themeDark?<Moon/> : <ThemeDark/>}
                         </button>
                     </div>
                     <div className="body">

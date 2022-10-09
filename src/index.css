@@ -28,13 +28,14 @@ body{
   background-color: var(--dark);
 }
 
-/* #light .main{
+#dark .sidbar{
+  background-color: var(--dark);
+}
+
+#light .sidbar{
   background-color: var(--white);
 }
 
-#dark .main{
-  background-color: var(--dark);
-} */
 
 a{
     text-decoration: none;
