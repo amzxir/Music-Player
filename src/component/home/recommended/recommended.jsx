@@ -66,11 +66,11 @@ const Recommen = styled.div({
 })
 
 const items = [
-    {id:1 , img:img1 , name:'Monsters Go Bump' , title:'ERIKA RECINOS'},
-    {id:2 , img:img2 , name:'Moment Apart' , title:'ODESZA'},
-    {id:3 , img:img3 , name:'lorem' , title:'RYAN GRIGDRY'},
-    {id:4 , img:img4 , name:'Believer' , title:'RYAN GRIGDRY'},
-    {id:5 , img:img5 , name:'lorem' , title:'RYAN GRIGDRY'},
+    {id:1 , img:img1 , name:'Monsters Go Bump' , title:'ERIKA RECINOS' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
+    {id:2 , img:img2 , name:'Moment Apart' , title:'ODESZA' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
+    {id:3 , img:img3 , name:'lorem' , title:'RYAN GRIGDRY' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
+    {id:4 , img:img4 , name:'Believer' , title:'RYAN GRIGDRY' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
+    {id:5 , img:img5 , name:'lorem' , title:'RYAN GRIGDRY' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
 
 ]
 
@@ -89,6 +89,7 @@ const Recommended = (props) => {
                             <div className="img">
                                 <img src={i.img} alt="" />
                             </div>
+                            <audio src={i.music}/>
                             <div className="content">
                                 <h1>{i.name}</h1>
                                 <p>{i.title}</p>

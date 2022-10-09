@@ -17,6 +17,7 @@ const Home = () => {
     const onSetMusic = (music) => {
         console.log(music);
         setCurrentMusic(music);
+        
     }
 
     return ( 

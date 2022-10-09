@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import {useLocation, useParams} from 'react-router-dom'
@@ -104,10 +104,18 @@ const PlayingNow = (props) => {
     
     const location = useLocation();
 
-    const [play , setplay] = useState(false);
+    const [play , setPlay] = useState(false);
 
-    const playMusic = () => {
-        setplay(!play)
+    const myRef = useRef();
+
+    const startAudio = () => {
+        myRef.current.play();
+        setPlay(true)
+    }
+    
+    const pauseAudio = () => {
+        myRef.current.pause();
+        setPlay(false)
     }
 
     useEffect(()=> {
@@ -119,6 +127,7 @@ const PlayingNow = (props) => {
             <div className="pnow">
                 <div className="img">
                     <img src={location.state.img} alt="" />
+                    <audio ref={myRef} src={location.state.music}/>
                 </div>
                 <div className="item">
                     <div className="content">
@@ -140,7 +149,7 @@ const PlayingNow = (props) => {
                         </div>
                         <div className="musicBtn">
                             <div><Next/></div>
-                            <div onClick={playMusic}>{play?<Pause/>:<FontAwesomeIcon style={{ fontSize:'30px' }} icon={faPlayCircle}/>}</div>
+                            <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'30px' }} icon={faPlayCircle}/>}</div>
                             <div><Prev/></div>
                         </div>
                     </div>

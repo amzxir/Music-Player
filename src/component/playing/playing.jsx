@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Next from './svg/next.jsx';
 import Prev from './svg/prev.jsx';
 import Pause from './svg/pause.jsx';
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import { NavLink } from "react-router-dom";
@@ -81,8 +81,16 @@ const Play = (props) => {
 
     const [play , setPlay] = useState(false);
 
-    const handelPlayMusic = () => {
-        setPlay(!play);
+    const myRef = useRef();
+
+    const startAudio = () => {
+        myRef.current.play();
+        setPlay(true)
+    }
+    
+    const pauseAudio = () => {
+        myRef.current.pause();
+        setPlay(false)
     }
 
     const data = props.currentMusic
@@ -90,6 +98,7 @@ const Play = (props) => {
     return props.currentMusic && ( 
         <Playing>
             <input type="range" className="range" />
+            <audio ref={myRef} src={props.currentMusic.music}></audio>
             <div className="playing">
                 <NavLink to={`/playing_now/${props.currentMusic.id}`} state={data} className="flexStart" onClick={()=> props.onMusicClick(data)}>
                         <div className="img">
@@ -102,7 +111,7 @@ const Play = (props) => {
                 </NavLink>
                 <div className="flexEnd">
                     <div><Next/></div>
-                    <div onClick={handelPlayMusic}>{play?<Pause/>:<FontAwesomeIcon style={{ fontSize:'18px' }} icon={faPlayCircle}/>}</div>
+                    <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'18px' }} icon={faPlayCircle}/>}</div>
                     <div><Prev/></div>
                 </div>
             </div>
