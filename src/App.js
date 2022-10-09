@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import styled from "styled-components";
 import Home from "./component/home/home";
 import Navbar from "./component/nav/nav";
@@ -9,10 +9,15 @@ import PlayList from "./component/playlist/play-list";
 import Play from "./component/playing/playing";
 
 
+const Body = styled.div({
+
+})
+
 const Container = styled.div({
   padding:'0px 20px 0px 20px'
 })
 
+export const ThemeContext = createContext(null);
 
 const App = () => {
 
@@ -38,21 +43,29 @@ const App = () => {
     setUSerIDProps(id)
   }
 
-  return ( 
-    <React.Fragment>
-      <Navbar userID={userIDProps}/>
-      <NavBack/>
-      <Container>
-        
-        <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route exact path="/playing_now/:userId" element={<PlayingNow setUserID={setUserID} likedHandler={likedHandler}/>} />
-          <Route exact path="/play_list"  element={<PlayList liked={liked} onMusicClick={onSetMusic}/>} />
-        </Routes>
+  const [theme , setTheme] = useState('dark')
 
-        {pathname === '/play_list' ?  <Play currentMusic={currentMusic} onMusicClick={onSetMusic}/> : null }
-      </Container>
-    </React.Fragment>
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'))
+  }
+
+  return ( 
+    <ThemeContext.Provider value={{ theme , toggleTheme }}>      
+      <div id={theme}>
+        <Navbar changeTheme={toggleTheme} userID={userIDProps}/>
+        <NavBack/>
+        <Container>
+          
+          <Routes>
+            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/playing_now/:userId" element={<PlayingNow setUserID={setUserID} likedHandler={likedHandler}/>} />
+            <Route exact path="/play_list"  element={<PlayList liked={liked} onMusicClick={onSetMusic}/>} />
+          </Routes>
+
+          {pathname === '/play_list' ?  <Play currentMusic={currentMusic} onMusicClick={onSetMusic}/> : null }
+        </Container>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

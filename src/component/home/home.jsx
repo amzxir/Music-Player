@@ -21,7 +21,7 @@ const Home = () => {
     }
 
     return ( 
-        <Homes>
+        <Homes className="main">
             <Recommended onMusicClick={onSetMusic}/>
             <Playist onMusicClick={onSetMusic}/>
             <Play currentMusic={currentMusic} onMusicClick={onSetMusic}/>

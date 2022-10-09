@@ -11,6 +11,7 @@ import ContactSvg from "./svg/contact";
 import FaqSvg from "./svg/faq";
 import SettingSvg from "./svg/setting";
 import { NavLink , useLocation } from "react-router-dom";
+import Moon from "./svg/moon";
 
 
 
@@ -105,8 +106,11 @@ const Navbar = (props) => {
             }}>
                 <div className={openSidbar?'mr-auto':'ml-auto'}>
                     <div className="header">
-                        <button className="btn" onClick={()=> (setOpenSidbar(!openSidbar))}><ExitSvg/></button>
-                        <button className="btn"><ThemeDark/></button>
+                        <button className="btn" onClick={()=> setOpenSidbar(!openSidbar)}><ExitSvg/></button>
+                        <button className="btn" onClick={()=> props.changeTheme()}>
+                            <ThemeDark/> 
+                            {/* <Moon/> */}
+                        </button>
                     </div>
                     <div className="body">
                         <ul>
