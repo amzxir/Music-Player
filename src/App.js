@@ -24,11 +24,6 @@ const App = () => {
 
   const [liked , setLiked]=useState([])
 
-  const sharingState = (data) => {
-    console.log(data)
-    setCurrentMusic(data)
-  }
-
   const likedHandler=(data)=>{
     console.log(data)
     setLiked([...liked , ...[data]])
