@@ -57,7 +57,7 @@ const Sidbar = styled.div({
                     marginBottom:'1.4rem',
 
                     '&> a':{
-                        color:'#DFE8FF',
+                        // color:'#DFE8FF',
                         fontWeight:'500',
                         fontSize:'18px',
                         marginLeft:'15px',
@@ -78,6 +78,14 @@ const Sidbar = styled.div({
         transition:'1.5s',
     },
 
+    '& .textWhite':{
+        color:'#DFE8FF'
+    },
+
+    '& .textDark':{
+        color:'#091227'
+    }
+
 })
 
 
@@ -89,14 +97,15 @@ const Navbar = (props) => {
 
     const changeThemeDark = () => {
         setThemeDark(!themeDark)
+        setColor(!colors)
     }
-
+    
+    const [colors , setColor] = useState(false)
 
     const { pathname } = useLocation();
     // console.log(pathname);
     if (pathname === `/playing_now/${props.userID}` )return null;
     if (pathname === "/play_list")return null;
-
 
     return ( 
         <Nav>
@@ -119,12 +128,12 @@ const Navbar = (props) => {
                     </div>
                     <div className="body">
                         <ul>
-                            <li><UserSvg/><NavLink to='/'>Profile</NavLink></li>
-                            <li onClick={()=> (setOpenSidbar(false))}><HeartSvg/><NavLink to='/play_list'>Liked Songs</NavLink></li>
-                            <li><LanguageSvg/><a href="#">Language</a></li>
-                            <li><ContactSvg/><a href="#">Contact us</a></li>
-                            <li><FaqSvg/><a href="#">FAQs</a></li>
-                            <li><SettingSvg/><a href="#">Settings</a></li>
+                            <li><UserSvg/><NavLink className={colors?'textDark':'textWhite'} to='/'>Profile</NavLink></li>
+                            <li onClick={()=> (setOpenSidbar(false))}><HeartSvg/><NavLink className={colors?'textDark':'textWhite'} to='/play_list'>Liked Songs</NavLink></li>
+                            <li><LanguageSvg/><a className={colors?'textDark':'textWhite'} href="#">Language</a></li>
+                            <li><ContactSvg/><a className={colors?'textDark':'textWhite'} href="#">Contact us</a></li>
+                            <li><FaqSvg/><a className={colors?'textDark':'textWhite'} href="#">FAQs</a></li>
+                            <li><SettingSvg/><a className={colors?'textDark':'textWhite'} href="#">Settings</a></li>
                         </ul>
                     </div>
                 </div>
