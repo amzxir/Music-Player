@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import MenuSvg from "./svg/menu";
 import Search from "./svg/search";
@@ -12,6 +12,7 @@ import FaqSvg from "./svg/faq";
 import SettingSvg from "./svg/setting";
 import { NavLink , useLocation } from "react-router-dom";
 import Moon from "./svg/moon";
+import Context from "../../context/context";
 
 
 
@@ -91,17 +92,16 @@ const Sidbar = styled.div({
 
 const Navbar = (props) => {
 
-    const [openSidbar , setOpenSidbar] = useState(false);
-
-    const [themeDark , setThemeDark] = useState(false);
+    const {colors , openSidbar
+        , setOpenSidbar , themeDark
+        , setThemeDark , changeColorText } = useContext(Context);
+ 
 
     const changeThemeDark = () => {
         setThemeDark(!themeDark)
-        setColor(!colors)
+        changeColorText()
     }
     
-    const [colors , setColor] = useState(false)
-
     const { pathname } = useLocation();
     // console.log(pathname);
     if (pathname === `/playing_now/${props.userID}` )return null;

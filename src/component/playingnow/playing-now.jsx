@@ -123,7 +123,7 @@ const PlayingNow = (props) => {
     },[userId])
 
     return ( 
-        <PlayNow>
+        <PlayNow className="h-87">
             <div className="pnow">
                 <div className="img">
                     <img src={location.state.img} alt="" />

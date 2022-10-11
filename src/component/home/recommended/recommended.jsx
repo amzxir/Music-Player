@@ -4,6 +4,8 @@ import img2 from './img/1.png'
 import img3 from './img/2.png'
 import img4 from './img/4.png'
 import img5 from './img/5.png'
+import { useContext } from "react";
+import Context from "../../../context/context";
 
 
 const Recommen = styled.div({
@@ -13,7 +15,6 @@ const Recommen = styled.div({
             fontWeight:'700',
             fontSize:'24px',
             lineHeight:'29px',
-            color:'#EAF0FF',
         }
     },
 
@@ -54,7 +55,6 @@ const Recommen = styled.div({
                     fontSize:'10px',
                     fontWeight:'400',
                     lineHeight:'12px',
-                    color:'#A5C0FF',
                 }
             }
         }
@@ -62,6 +62,18 @@ const Recommen = styled.div({
 
     '&> .none':{
         display:'none',
+    },
+
+    '& .textWhite1':{
+        color:'#A5C0FF'
+    },
+
+    '& .textWhite2':{
+        color:'#fff'
+    },
+
+    '& .textDark':{
+        color:'#091227'
     }
 })
 
@@ -74,13 +86,14 @@ const items = [
 
 ]
 
-
 const Recommended = (props) => {
+    
+    const {colors} = useContext(Context)
     
     return ( 
         <Recommen>
             <div className="title">
-                <p>Recommended for you</p>
+                <p className={colors?'textDark':'textWhite2'}>Recommended for you</p>
             </div>
             <div className="scroll">
                 {items.map((i , index)=> {
@@ -91,8 +104,8 @@ const Recommended = (props) => {
                             </div>
                             <audio src={i.music}/>
                             <div className="content">
-                                <h1>{i.name}</h1>
-                                <p>{i.title}</p>
+                                <h1 className={colors?'textDark':'textWhite2'}>{i.name}</h1>
+                                <p className={colors?'textDark':'textWhite1'}>{i.title}</p>
                             </div>
                         </div>
                     )

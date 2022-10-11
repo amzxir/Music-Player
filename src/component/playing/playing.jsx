@@ -2,10 +2,11 @@ import styled from "styled-components";
 import Next from './svg/next.jsx';
 import Prev from './svg/prev.jsx';
 import Pause from './svg/pause.jsx';
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import { NavLink } from "react-router-dom";
+import Context from "../../context/context.jsx";
 
 const Playing = styled.div({
     position:'fixed',
@@ -13,7 +14,6 @@ const Playing = styled.div({
     bottom:'0',
     right:'0',
     left:'0',
-    backgroundColor:'#091227',
     zIndex:'10000000',
 
     '@media (min-width: 450px)': {
@@ -75,9 +75,31 @@ const Playing = styled.div({
         }
     },
 
+    '& .bgDark':{
+        backgroundColor:'#091227',
+    },
+
+    '& .bgWhite':{
+        backgroundColor:'#fff',
+    },
+
+    '& .textWhite':{
+        color:'#DFE8FF'
+    },
+
+    '& .textDark':{
+        color:'#000'
+    },
+
+    '& .textLight':{
+        color:'8996B8'
+    }
+
 })
 
 const Play = (props) => {
+
+    const {colors} = useContext(Context) 
 
     const [play , setPlay] = useState(false);
 
@@ -96,22 +118,22 @@ const Play = (props) => {
     const data = props.currentMusic
 
     return props.currentMusic && ( 
-        <Playing>
+        <Playing >
             <input type="range" className="range" />
             <audio ref={myRef} src={props.currentMusic.music}></audio>
-            <div className="playing">
+            <div className={colors?'bgWhite playing':'bgDark playing'}>
                 <NavLink to={`/playing_now/${props.currentMusic.id}`} state={data} className="flexStart" onClick={()=> props.onMusicClick(data)}>
                         <div className="img">
                             <img src={props?.currentMusic?.img} alt="" />
                         </div>
                         <div className="content">
-                            <p>{props?.currentMusic?.name}</p>
-                            <small>{props?.currentMusic?.title}</small>
+                            <p className={colors?'textDark':'textWhite'}>{props?.currentMusic?.name}</p>
+                            <small className={colors?'textDark':'textLight'}>{props?.currentMusic?.title}</small>
                         </div>
                 </NavLink>
                 <div className="flexEnd">
                     <div><Next/></div>
-                    <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'18px' }} icon={faPlayCircle}/>}</div>
+                    <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'18px' }} className={colors?'textDark':'textWhite'} icon={faPlayCircle}/>}</div>
                     <div><Prev/></div>
                 </div>
             </div>

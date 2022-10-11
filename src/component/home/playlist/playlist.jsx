@@ -5,6 +5,8 @@ import img3 from './img/2.png'
 import img4 from './img/4.png'
 import img5 from './img/5.png'
 import img6 from './img/5.png'
+import { useContext } from "react";
+import Context from "../../../context/context";
 
 
 
@@ -16,7 +18,6 @@ const Plist = styled.div({
             fontWeight:'700',
             fontSize:'24px',
             lineHeight:'29px',
-            color:'#EAF0FF',
         }
     },
 
@@ -57,10 +58,21 @@ const Plist = styled.div({
                     fontSize:'10px',
                     fontWeight:'400',
                     lineHeight:'12px',
-                    color:'#A5C0FF',
                 }
             }
         }
+    },
+
+    '& .textWhite1':{
+        color:'#A5C0FF'
+    },
+
+    '& .textWhite2':{
+        color:'#fff'
+    },
+
+    '& .textDark':{
+        color:'#091227'
     }
 })
 
@@ -71,18 +83,16 @@ const items = [
     {id:4 , img:img4 , name:'Believer' , title:'RYAN GRIGDRY' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
     {id:5 , img:img5 , name:'lorem' , title:'RYAN GRIGDRY' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
     {id:6 , img:img6 , name:'Shortwave' , title:'RYAN GRIGDRY' , music:'https://dl.bia2rap.top/Full/Fadaei/Hagh/Fadaei%20-%20Alef%20(320).mp3'},
-
-
-
-
 ]
 
 const Playist = (props) => {
 
+    const {colors} = useContext(Context)
+
     return ( 
         <Plist>
             <div className="title">
-                <p>My Playlist</p>
+                <p className={colors?'textDark':'textWhite2'}>My Playlist</p>
             </div>
             <div className="scroll">
                 {items.map((i , index)=> {
@@ -93,8 +103,8 @@ const Playist = (props) => {
                             </div>
                             <audio src={i.music}/>
                             <div className="content">
-                                <h1>{i.name}</h1>
-                                <p>{i.title}</p>
+                                <h1 className={colors?'textDark':'textWhite2'}>{i.name}</h1>
+                                <p className={colors?'textDark':'textWhite1'}>{i.title}</p>
                             </div>
                         </div>
                     )

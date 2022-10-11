@@ -16,7 +16,6 @@ body{
 }
 
 #root{
-    background-color: var(--dark);
     color: var(--white);
 }
 
@@ -34,6 +33,15 @@ body{
 
 
 #light .sidbar{
+  background-color: var(--white);
+}
+
+#dark .body{
+  background-color: var(--dark);
+}
+
+
+#light .body{
   background-color: var(--white);
 }
 
@@ -95,10 +103,18 @@ a{
     margin-right: auto;
     margin-left: auto;
   }
+
+  .h-87{
+    min-height: 60vh;
+  }
 }
 
 @media only screen and (max-width: 450px) {
   body {
-    background-color: var(--dark);
+    /* background-color: var(--dark); */
+  }
+
+  .h-87{
+    height: 87.4vh;
   }
 }
