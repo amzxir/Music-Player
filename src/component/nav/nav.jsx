@@ -39,6 +39,7 @@ const Sidbar = styled.div({
 
     '@media (min-width: 450px)': {
         position:'absolute',
+        height:'76vh'
     },
     
     '&> div':{
