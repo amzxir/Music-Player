@@ -21,9 +21,13 @@ const Nav = styled.nav({
     padding:'20px 20px',
     boxShadow:'0 .125rem .25rem rgba(0,0,0,.075)',
     position:'sticky',
-    display:'flex',
-    justifyContent:'space-between',
-    alignItems:'center',
+    top:'0',
+
+    '&> div#alignItems':{
+        display:'flex',
+        justifyContent:'space-between',
+        alignItems:'center',
+    },
 })
 
 const Sidbar = styled.div({
@@ -86,7 +90,9 @@ const Sidbar = styled.div({
 
     '& .textDark':{
         color:'#091227'
-    }
+    },
+
+
 
 })
 
@@ -109,13 +115,15 @@ const Navbar = (props) => {
     if (pathname === "/play_list")return null;
 
     return ( 
-        <Nav>
-            <button className="btn" onClick={()=> (setOpenSidbar(!openSidbar))}>
-                <MenuSvg/>
-            </button>
-            <button className="btn">
-                <Search/>
-            </button>
+        <Nav className={colors?'bg-White':'bg-Dark'}>
+            <div id="alignItems">
+                <button className="btn" onClick={()=> (setOpenSidbar(!openSidbar))}>
+                    <MenuSvg/>
+                </button>
+                <button className="btn">
+                    <Search/>
+                </button>
+            </div>
             <Sidbar className="sidbar" style={{ 
                 width:openSidbar?'200px':'0px',
                 transition:openSidbar?'1s':'1s'
