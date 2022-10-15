@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import {useLocation, useParams} from 'react-router-dom'
@@ -10,9 +10,10 @@ import Shuffel from "./svg/shuffel";
 import Sound from "./svg/sound";
 import Next from "./svg/next";
 import Prev from "./svg/prev";
+import Context from "../../context/context";
 
 const PlayNow = styled.div({
-    marginTop:'15px',
+    // marginTop:'15px',
     '&> div.pnow':{
 
         '&> div.img':{
@@ -35,7 +36,6 @@ const PlayNow = styled.div({
                         fontWeight:'500',
                         fontSize:'24px',
                         lineHeight:'28px',
-                        color:'#EAF0FF',
                         marginBlockEnd:'0',
                     },
 
@@ -43,7 +43,7 @@ const PlayNow = styled.div({
                         fontSize:'16px',
                         fontWeight:'400',
                         marginBlockStart:'.5rem',
-                        color:'rgba(165, 192, 255, 0.7)',
+                        color:'#8996B8',
                     }
                 },
 
@@ -80,7 +80,6 @@ const PlayNow = styled.div({
                         lineHeight:'14px',
                         fontWeight:'400',
                         marginBlock:'0',
-                        color:'rgba(165, 192, 255, 0.7)',
                     }
                 },
 
@@ -92,13 +91,30 @@ const PlayNow = styled.div({
                     display:'flex',
                     justifyContent:'space-around',
                     marginTop:'4rem',
-                }
+                },            
+
             }
 
         }
-    }
+    },
+
+    '& .textDark':{
+        color:'#091127'
+    },
+
+    '& .textLight':{
+        color:'#8996B8'
+    },
+
+    '& .textWhite':{
+        color:'#EAF0FF'
+    },
+
+    
 })
 const PlayingNow = (props) => {
+
+    const {colors} = useContext(Context)
     
     const { userId } = useParams();
     
@@ -132,8 +148,8 @@ const PlayingNow = (props) => {
                 <div className="item">
                     <div className="content">
                         <div className="name">
-                            <h1>{location.state.name}</h1>
-                            <p>{location.state.title}</p>
+                            <h1 className={colors?'textDark':'textWhite'}>{location.state.name}</h1>
+                            <p className={colors?'textLight':''}>{location.state.title}</p>
                         </div>
                         <div className="like" onClick={()=> props.likedHandler(location.state)}><Like/></div>
                     </div>
@@ -143,13 +159,13 @@ const PlayingNow = (props) => {
                         <div><Sound/></div>
                     </div>
                     <div className="playMusic">
-                        <div className="time"><p>00:00</p> <p>04:00</p></div>
+                        <div className="time"><p className={colors?'textDark':'textWhite'}>00:00</p> <p className={colors?'textDark':'textWhite'}>04:00</p></div>
                         <div className="inputRange">
                             <input type="range" className="range" />
                         </div>
                         <div className="musicBtn">
                             <div><Next/></div>
-                            <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'30px' }} icon={faPlayCircle}/>}</div>
+                            <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon className={colors?'textDark':'textWhite'} onClick={startAudio} style={{ fontSize:'30px' }} icon={faPlayCircle}/>}</div>
                             <div><Prev/></div>
                         </div>
                     </div>

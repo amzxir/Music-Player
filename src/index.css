@@ -13,6 +13,10 @@ html,body,#root{
 body{
     font-family: sans-serif;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
 }
 
 #root{
@@ -21,12 +25,12 @@ body{
 
 #light{
   background-color: var(--white);
-  height: 760px;
+  min-height: 760px;
 }
 
 #dark{
   background-color: var(--dark);
-  height: 760px;
+  min-height: 760px;
 }
 
 #dark .sidbar{
@@ -118,12 +122,12 @@ a{
 
   #light{
     background-color: var(--white);
-    height: 100vh;
+    min-height: 100vh;
   }
   
   #dark{
     background-color: var(--dark);
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .h-87{

@@ -21,8 +21,8 @@ const Playing = styled.div({
         marginRight:'auto',
         marginLeft:'auto',
         maxWidth:'22.5rem',
-        bottom:'302px',
-        right:'14px'
+        bottom:'151px',
+        right:'16px'
     },
 
     '&> div.playing':{
