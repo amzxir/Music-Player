@@ -6,6 +6,7 @@ import img4 from './img/4.png'
 import img5 from './img/5.png'
 import { useContext } from "react";
 import Context from "../../../context/context";
+import { faHouseChimneyCrack } from "@fortawesome/free-solid-svg-icons";
 
 
 const Recommen = styled.div({
@@ -89,6 +90,7 @@ const items = [
 const Recommended = (props) => {
     
     const {colors} = useContext(Context)
+
     
     return ( 
         <Recommen>

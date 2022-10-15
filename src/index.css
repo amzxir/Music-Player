@@ -21,10 +21,12 @@ body{
 
 #light{
   background-color: var(--white);
+  height: 760px;
 }
 
 #dark{
   background-color: var(--dark);
+  height: 760px;
 }
 
 #dark .sidbar{
@@ -97,8 +99,8 @@ a{
 
 @media only screen and (min-width: 450px) {
   #root {
-    max-width: 400px;
-    height: 100vh;
+    max-width: 375px;
+    height: 667px;
     overflow: auto;
     margin-right: auto;
     margin-left: auto;
@@ -112,6 +114,16 @@ a{
 @media only screen and (max-width: 450px) {
   body {
     /* background-color: var(--dark); */
+  }
+
+  #light{
+    background-color: var(--white);
+    height: 100vh;
+  }
+  
+  #dark{
+    background-color: var(--dark);
+    height: 100vh;
   }
 
   .h-87{

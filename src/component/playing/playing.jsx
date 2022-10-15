@@ -20,8 +20,9 @@ const Playing = styled.div({
         position:'absolute',
         marginRight:'auto',
         marginLeft:'auto',
-        maxWidth:'25rem',
-        bottom:'227px'
+        maxWidth:'22.5rem',
+        bottom:'302px',
+        right:'14px'
     },
 
     '&> div.playing':{
