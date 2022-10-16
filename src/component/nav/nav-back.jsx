@@ -60,9 +60,9 @@ const NavBack = () => {
     return ( 
         <Back>
             <div className={colors?'bgWhite':'bgDark'}>
-                <div onClick={()=> navigare(-1)}><BackIcon/></div>
+                <div className="pointer" onClick={()=> navigare(-1)}><BackIcon/></div>
                 <div className="mx-auto">{changeNameNav()}</div>
-                <div>{pathname !=='/playing_now' ? <Option/> :''}</div>
+                <div className="pointer">{pathname !=='/playing_now' ? <Option/> :''}</div>
             </div>
         </Back>
     );

@@ -13,7 +13,6 @@ import Prev from "./svg/prev";
 import Context from "../../context/context";
 
 const PlayNow = styled.div({
-    // marginTop:'15px',
     padding:'0px 20px 0px 20px',
     '&> div.pnow':{
 
@@ -53,6 +52,7 @@ const PlayNow = styled.div({
                     top:'50%',
                     right:'0',
                     marginLeft:'auto',
+                    cursor:'pointer',
                 }
             },
 
@@ -155,9 +155,9 @@ const PlayingNow = (props) => {
                         <div className="like" onClick={()=> props.likedHandler(location.state)}><Like/></div>
                     </div>
                     <div className="option">
-                        <div className="msAuto"><Shuffel/></div>
-                        <div className="ms1"><Reapet/></div>
-                        <div><Sound/></div>
+                        <div className="msAuto pointer"><Shuffel/></div>
+                        <div className="ms1 pointer"><Reapet/></div>
+                        <div className="pointer"><Sound/></div>
                     </div>
                     <div className="playMusic">
                         <div className="time"><p className={colors?'textDark':'textWhite'}>00:00</p> <p className={colors?'textDark':'textWhite'}>04:00</p></div>
@@ -165,9 +165,9 @@ const PlayingNow = (props) => {
                             <input type="range" className="range" />
                         </div>
                         <div className="musicBtn">
-                            <div><Next/></div>
-                            <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon className={colors?'textDark':'textWhite'} onClick={startAudio} style={{ fontSize:'30px' }} icon={faPlayCircle}/>}</div>
-                            <div><Prev/></div>
+                            <div className="pointer"><Next/></div>
+                            <div className="pointer">{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon className={colors?'textDark':'textWhite'} onClick={startAudio} style={{ fontSize:'30px' }} icon={faPlayCircle}/>}</div>
+                            <div className="pointer"><Prev/></div>
                         </div>
                     </div>
                 </div>

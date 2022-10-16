@@ -116,12 +116,8 @@ const Navbar = (props) => {
     return ( 
         <Nav className={colors?'bg-White':'bg-Dark'}>
             <div id="alignItems">
-                <button className="btn" onClick={()=> (setOpenSidbar(!openSidbar))}>
-                    <MenuSvg/>
-                </button>
-                <button className="btn">
-                    <Search/>
-                </button>
+                <button className="btn pointer" onClick={()=> (setOpenSidbar(!openSidbar))}><MenuSvg/></button>
+                <button className="btn pointer"><Search/></button>
             </div>
             <Sidbar className="sidbar" style={{ 
                 width:openSidbar?'200px':'0px',
@@ -129,8 +125,8 @@ const Navbar = (props) => {
             }}>
                 <div className={openSidbar?'mr-auto':'ml-auto'}>
                     <div className="header">
-                        <button className="btn" onClick={()=> setOpenSidbar(!openSidbar)}><ExitSvg/></button>
-                        <button className="btn" onClick={()=> props.changeTheme(changeThemeDark())}>
+                        <button className="btn pointer" onClick={()=> setOpenSidbar(!openSidbar)}><ExitSvg/></button>
+                        <button className="btn pointer" onClick={()=> props.changeTheme(changeThemeDark())}>
                             {themeDark?<Moon/> : <ThemeDark/>}
                         </button>
                     </div>

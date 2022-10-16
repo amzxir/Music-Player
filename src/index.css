@@ -29,6 +29,7 @@ body{
 #root{
     color: var(--white);
     position: relative;
+    border-radius: 15px;
 }
 
 #light{
@@ -58,7 +59,6 @@ body{
   background-color: var(--white);
 }
 
-
 a{
     text-decoration: none;
 }
@@ -77,6 +77,10 @@ a{
     border: 1px solid transparent;
     border-radius: 0.25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.pointer{
+  cursor: pointer;
 }
 
 /* @keyframes raiseUp {
@@ -148,6 +152,7 @@ a{
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
+  display: none;
 }
 ::-webkit-scrollbar-thumb {
   /* background: var(--dark) ; */

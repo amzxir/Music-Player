@@ -20,7 +20,6 @@ const Playing = styled.div({
         position:'sticky',
         marginRight:'auto',
         marginLeft:'auto',
-        maxWidth:'22.5rem',
         bottom:'0',
         right:'16px'
     },
@@ -134,9 +133,9 @@ const Play = (props) => {
                         </div>
                 </NavLink>
                 <div className="flexEnd">
-                    <div><Next/></div>
-                    <div>{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'18px' }} className={colors?'textDark':'textWhite'} icon={faPlayCircle}/>}</div>
-                    <div><Prev/></div>
+                    <div className="pointer"><Next/></div>
+                    <div className="pointer">{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'18px' }} className={colors?'textDark':'textWhite'} icon={faPlayCircle}/>}</div>
+                    <div className="pointer"><Prev/></div>
                 </div>
             </div>
         </Playing>
