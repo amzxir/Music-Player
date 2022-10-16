@@ -17,11 +17,11 @@ const Playing = styled.div({
     zIndex:'10000000',
 
     '@media (min-width: 450px)': {
-        position:'absolute',
+        position:'sticky',
         marginRight:'auto',
         marginLeft:'auto',
         maxWidth:'22.5rem',
-        bottom:'151px',
+        bottom:'0',
         right:'16px'
     },
 

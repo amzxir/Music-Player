@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 const PalyLists = styled.div({
-
+    padding:'0px 20px 0px 20px',
     '&> p':{
         fontSize:'24px',
         fontWeight:'700',

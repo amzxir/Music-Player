@@ -43,7 +43,7 @@ const Sidbar = styled.div({
 
     '@media (min-width: 450px)': {
         position:'absolute',
-        height:'76vh'
+        height:'85vh'
     },
     
     '&> div':{
@@ -63,7 +63,6 @@ const Sidbar = styled.div({
                     marginBottom:'1.4rem',
 
                     '&> a':{
-                        // color:'#DFE8FF',
                         fontWeight:'500',
                         fontSize:'18px',
                         marginLeft:'15px',

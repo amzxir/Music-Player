@@ -13,6 +13,7 @@ import Context from "../../../context/context";
 
 const Plist = styled.div({
     marginBottom:'2rem',
+    padding:'0px 20px 0px 20px',
     '&> div.title':{
         '&> p':{
             fontWeight:'700',

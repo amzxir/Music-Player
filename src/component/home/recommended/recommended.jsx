@@ -6,10 +6,10 @@ import img4 from './img/4.png'
 import img5 from './img/5.png'
 import { useContext } from "react";
 import Context from "../../../context/context";
-import { faHouseChimneyCrack } from "@fortawesome/free-solid-svg-icons";
 
 
 const Recommen = styled.div({
+    padding:'0px 20px 0px 20px',
     marginBottom:'2rem',
     '&> div.title':{
         '&> p':{

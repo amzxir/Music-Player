@@ -14,6 +14,7 @@ import Context from "../../context/context";
 
 const PlayNow = styled.div({
     // marginTop:'15px',
+    padding:'0px 20px 0px 20px',
     '&> div.pnow':{
 
         '&> div.img':{
