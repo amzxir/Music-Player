@@ -145,7 +145,7 @@ const Play = (props) => {
 
         const centerThumb = (thumbWidth / 100) * percentage * -1
         const centerProgressBar = thumbWidth + rangeWidth/100 * percentage - (thumbWidth/100 * percentage)
-        
+
         setMarginLeft(centerThumb)
         setPosition(percentage)
         setProgressBarWidth(centerProgressBar)
@@ -176,7 +176,7 @@ const Play = (props) => {
                  }}></div>
                 <div className="thumb" ref={thumbRef} style={{ 
                     left:`${position}%`,
-                    marginLeft: `${marginLeft}px`
+                    marginLeft: `${marginLeft}px`,
                  }}></div>
                 <input type="range" className="range" step='0.01' value={position} ref={rangeRef} onChange={onChange} />
             </div>
