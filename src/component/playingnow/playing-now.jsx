@@ -123,15 +123,13 @@ const PlayingNow = (props) => {
 
     const [play , setPlay] = useState(false);
 
-    const myRef = useRef();
-
     const startAudio = () => {
-        myRef.current.play();
+        audioRef.current.play();
         setPlay(true)
     }
     
     const pauseAudio = () => {
-        myRef.current.pause();
+        audioRef.current.pause();
         setPlay(false)
     }
 
@@ -139,12 +137,68 @@ const PlayingNow = (props) => {
         props.setUserID(userId)
     },[userId])
 
+    //////////////// custom audio player ///////////////////
+
+    const rangeRef = useRef();
+
+    const thumbRef = useRef();
+
+    const audioRef = useRef();
+
+    const [percentage , setPercentage] = useState(0)
+
+    const onChange = (e) => {
+        const audio = audioRef.current
+        audio.currentTime = (audio.duration / 100) * e.target.value
+        setPercentage(e.target.value)
+    }
+
+    const [position , setPosition] = useState(0)
+
+    const [marginLeft , setMarginLeft] = useState(0)
+
+    const [progressBarWidth , setProgressBarWidth] = useState(0)
+    
+    useEffect(()=> {
+        const rangeWidth = rangeRef.current?.getBoundingClientRect().width
+        const thumbWidth = thumbRef.current?.getBoundingClientRect().width
+
+        const centerThumb = (thumbWidth / 100) * percentage * -1
+        const centerProgressBar = thumbWidth + rangeWidth/100 * percentage - (thumbWidth/100 * percentage)
+
+        setMarginLeft(centerThumb)
+        setPosition(percentage)
+        setProgressBarWidth(centerProgressBar)
+    }, [percentage])
+
+
+    const [duration , setDuration] = useState(0)
+
+    const [currentTime , setCurrentTime] = useState(0)
+
+    const getCurrDuration = (e) => {
+        const percent = ((e.currentTarget.currentTime / e.currentTarget.duration) * 100).toFixed(2)
+        const time = e.currentTarget.currentTime
+
+        setPercentage(+percent)
+        setCurrentTime(time.toFixed(2))
+    }
+
+    ///////////////////////////////////////////////////////
+
     return ( 
         <PlayNow>
             <div className="pnow">
                 <div className="img">
                     <img src={location.state.img} alt="" />
-                    <audio ref={myRef} src={location.state.music}/>
+                    <audio ref={audioRef} src={location.state.music}
+                        onLoadedData={(e)=> {
+                            console.log(e.currentTarget.duration)
+                            setDuration(e.currentTarget.duration.toFixed(2))
+                        }}
+            
+                        onTimeUpdate={getCurrDuration}
+                    />
                 </div>
                 <div className="item">
                     <div className="content">
@@ -162,7 +216,16 @@ const PlayingNow = (props) => {
                     <div className="playMusic">
                         <div className="time"><p className={colors?'textDark':'textWhite'}>00:00</p> <p className={colors?'textDark':'textWhite'}>04:00</p></div>
                         <div className="inputRange">
-                            <input type="range" className="range" />
+                            <div className='slider-container'>
+                                <div className={colors?'progress-bar-cover bgDark':'progress-bar-cover bgWhite'} style={{ 
+                                    width:`${progressBarWidth}px`,
+                                }}></div>
+                                <div className="thumb" ref={thumbRef} style={{ 
+                                    left:`${position}%`,
+                                    marginLeft: `${marginLeft}px`,
+                                }}></div>
+                                <input type="range" className="range" step='0.01' value={position} ref={rangeRef} onChange={onChange} />
+                            </div>
                         </div>
                         <div className="musicBtn">
                             <div className="pointer"><Next/></div>
