@@ -185,7 +185,7 @@ const PlayingNow = (props) => {
     }
 
     function secondsToHms (seconds) {
-        if (!seconds) return '00 : 00'
+        if (!seconds) return '00:00'
 
         let duration = seconds
         let hours = duration / 3600
