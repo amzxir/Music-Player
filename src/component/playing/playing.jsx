@@ -118,7 +118,7 @@ const Play = (props) => {
 
     const data = props.currentMusic
 
-    //////////////// custom audio player ///////////////////
+    //// start function player ////
 
     const rangeRef = useRef();
 
@@ -164,7 +164,8 @@ const Play = (props) => {
         setCurrentTime(time.toFixed(2))
     }
 
-    ///////////////////////////////////////////////////////
+    //// end function player ////
+
 
     // console.log(percentage)
 

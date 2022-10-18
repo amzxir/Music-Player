@@ -137,7 +137,7 @@ const PlayingNow = (props) => {
         props.setUserID(userId)
     },[userId])
 
-    //////////////// custom audio player ///////////////////
+    //// start function player ////
 
     const rangeRef = useRef();
 
@@ -184,7 +184,39 @@ const PlayingNow = (props) => {
         setCurrentTime(time.toFixed(2))
     }
 
-    ///////////////////////////////////////////////////////
+    function secondsToHms (seconds) {
+        if (!seconds) return '00 : 00'
+
+        let duration = seconds
+        let hours = duration / 3600
+        duration = duration % 3600
+
+        let min = parseInt(duration / 60)
+        duration = duration % 60
+
+        let sec = parseInt(duration)
+
+        if(sec < 10){
+            sec = `0${sec}`
+        }
+        if(sec < 10){
+            sec = `0${min}`
+        }
+
+        if(parseInt(hours , 10) > 0){
+            return `${parseInt(hours , 10)} ${min} ${sec}`
+            
+        } else if(min === 0){
+            return `00:${sec}`
+
+        }else{
+            return `${min}:${sec}`
+        }
+
+    }
+
+    //// end function player ////
+
 
     return ( 
         <PlayNow>
@@ -214,7 +246,7 @@ const PlayingNow = (props) => {
                         <div className="pointer"><Sound/></div>
                     </div>
                     <div className="playMusic">
-                        <div className="time"><p className={colors?'textDark':'textWhite'}>00:00</p> <p className={colors?'textDark':'textWhite'}>04:00</p></div>
+                        <div className="time"><p className={colors?'textDark':'textWhite'}>{secondsToHms(currentTime)}</p> <p className={colors?'textDark':'textWhite'}>{secondsToHms(duration)}</p></div>
                         <div className="inputRange">
                             <div className='slider-container'>
                                 <div className={colors?'progress-bar-cover bgDark':'progress-bar-cover bgWhite'} style={{ 
