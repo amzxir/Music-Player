@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import Context from "../../context/context";
 
 
 const PalyLists = styled.div({
@@ -8,7 +10,8 @@ const PalyLists = styled.div({
         fontWeight:'700',
         lineHeight:'29px',
         marginBlockStart:'0',
-        paddingLeft:'10px'
+        paddingLeft:'10px',
+        marginTop:'1rem'
     },
 
     '&> div.row':{
@@ -37,7 +40,6 @@ const PalyLists = styled.div({
                     fontSize:'14px',
                     fontWeight:'500',
                     lineHeight:'16px',
-                    color:'#EAF0FF',
                 },
 
                 '& p':{
@@ -48,14 +50,28 @@ const PalyLists = styled.div({
                 }
             }
         }
+    },
+
+    '& .textLight':{
+        color:'#EAF0FF'
+    },
+
+    '& .textWhite':{
+        color:'#fff'
+    },
+
+    '& .textDark':{
+        color:'#091227'
     }
 })
 
 const PlayList = (props) => {
 
+    const {colors} = useContext(Context)
+
     return ( 
         <PalyLists>
-            <p>Liked Songs</p>
+            <p className={colors?'textDark':'textWhite'}>Liked Songs</p>
                 <div className="row">
                     {props.liked.map((i , index)=> {
                         return (
@@ -64,7 +80,7 @@ const PlayList = (props) => {
                                 <img src={i?.img} alt="" />
                             </div>
                             <div className="content">
-                                <h1>{i?.name}</h1>
+                                <h1 className={colors?'textDark':'textLight'}>{i?.name}</h1>
                                 <p>{i?.title}</p>
                             </div>
                         </div>
