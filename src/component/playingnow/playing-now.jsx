@@ -196,10 +196,10 @@ const PlayingNow = (props) => {
 
         let sec = parseInt(duration)
 
-        if(sec < 10){
+        if(sec < 0){
             sec = `0${sec}`
         }
-        if(sec < 10){
+        if(sec < 0){
             sec = `0${min}`
         }
 
