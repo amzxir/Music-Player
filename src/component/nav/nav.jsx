@@ -112,6 +112,7 @@ const Navbar = (props) => {
     // console.log(pathname);
     if (pathname === `/playing_now/${props.userID}` )return null;
     if (pathname === "/play_list")return null;
+    if (pathname === '/world_artist') return null;
 
     return ( 
         <Nav className={colors?'bg-White':'bg-Dark'}>
@@ -134,8 +135,8 @@ const Navbar = (props) => {
                         <ul>
                             <li><UserSvg/><NavLink className={colors?'textDark':'textWhite'} to='/'>Profile</NavLink></li>
                             <li onClick={()=> (setOpenSidbar(false))}><HeartSvg/><NavLink className={colors?'textDark':'textWhite'} to='/play_list'>Liked Songs</NavLink></li>
-                            <li><LanguageSvg/><a className={colors?'textDark':'textWhite'} href="#">Language</a></li>
-                            <li><ContactSvg/><a className={colors?'textDark':'textWhite'} href="#">Contact us</a></li>
+                            <li onClick={()=> (setOpenSidbar(false))}><LanguageSvg/><NavLink className={colors?'textDark':'textWhite'} to='/world_artist'>Music</NavLink></li>
+                            <li><ContactSvg/><a className={colors?'textDark':'textWhite'} href='#'>Contact us</a></li>
                             <li><FaqSvg/><a className={colors?'textDark':'textWhite'} href="#">FAQs</a></li>
                             <li><SettingSvg/><a className={colors?'textDark':'textWhite'} href="#">Settings</a></li>
                         </ul>

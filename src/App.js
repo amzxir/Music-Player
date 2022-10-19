@@ -8,6 +8,7 @@ import NavBack from "./component/nav/nav-back";
 import PlayList from "./component/playlist/play-list";
 import Play from "./component/playing/playing";
 import Context from "./context/context";
+import Artist from "./component/artist/artist";
 
 
 const Body = styled.div({
@@ -73,6 +74,7 @@ const App = () => {
               <Route exact path="/" element={<Home/>} />
               <Route exact path="/playing_now/:userId" element={<PlayingNow setUserID={setUserID} likedHandler={likedHandler}/>} />
               <Route exact path="/play_list"  element={<PlayList liked={liked} onMusicClick={onSetMusic}/>} />
+              <Route exact path="/world_artist" element={<Artist/>}/>
             </Routes>
 
             {pathname === '/play_list' ?  <Play currentMusic={currentMusic} onMusicClick={onSetMusic}/> : null }
