@@ -135,7 +135,7 @@ const Navbar = (props) => {
                         <ul>
                             <li><UserSvg/><NavLink className={colors?'textDark':'textWhite'} to='/'>Profile</NavLink></li>
                             <li onClick={()=> (setOpenSidbar(false))}><HeartSvg/><NavLink className={colors?'textDark':'textWhite'} to='/play_list'>Liked Songs</NavLink></li>
-                            <li onClick={()=> (setOpenSidbar(false))}><LanguageSvg/><NavLink className={colors?'textDark':'textWhite'} to='/world_artist'>Music</NavLink></li>
+                            <li onClick={()=> (setOpenSidbar(false))}><LanguageSvg/><NavLink className={colors?'textDark':'textWhite'} to='/world_artist'>artist</NavLink></li>
                             <li><ContactSvg/><a className={colors?'textDark':'textWhite'} href='#'>Contact us</a></li>
                             <li><FaqSvg/><a className={colors?'textDark':'textWhite'} href="#">FAQs</a></li>
                             <li><SettingSvg/><a className={colors?'textDark':'textWhite'} href="#">Settings</a></li>
