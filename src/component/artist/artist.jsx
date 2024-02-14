@@ -56,7 +56,7 @@ const Container = styled.div({
 
 const Artist = () => {
 
-    const [data , setData] = useState({});
+    const [data , setData] = useState([]);
 
     useEffect(()=> {
         const changeData = async() => {
