@@ -1,14 +1,14 @@
 import React, { createContext, useState } from "react";
 import styled from "styled-components";
-import Home from "./component/home/home";
-import Navbar from "./component/nav/nav";
+import Home from "./components/home/home";
+import Navbar from "./components/nav/nav";
 import { Route , Routes, useLocation } from "react-router-dom";
-import PlayingNow from "./component/playingnow/playing-now";
-import NavBack from "./component/nav/nav-back";
-import PlayList from "./component/playlist/play-list";
-import Play from "./component/playing/playing";
+import PlayingNow from "./components/playingnow/playing-now";
+import NavBack from "./components/nav/nav-back";
+import PlayList from "./components/playlist/play-list";
+import Play from "./components/playing/playing";
 import Context from "./context/context";
-import Artist from "./component/artist/artist";
+import Artist from "./components/artist/artist";
 
 
 const Body = styled.div({
