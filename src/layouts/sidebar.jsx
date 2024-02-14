@@ -1,4 +1,4 @@
-const Musics = () => {
+const Sidebar = () => {
     return(
         <div>
 
@@ -6,4 +6,4 @@ const Musics = () => {
     )
 }
 
-export default Musics;
+export default Sidebar;
