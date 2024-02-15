@@ -6,6 +6,7 @@ import img4 from './img/4.png'
 import img5 from './img/5.png'
 import { useContext } from "react";
 import Context from "../../../context/context";
+import { useAppContext } from "../../../context/app/app-context";
 
 
 const Recommen = styled.div({
@@ -89,13 +90,12 @@ const items = [
 
 const Recommended = (props) => {
     
-    const {colors} = useContext(Context)
-
+    const { theme } = useAppContext();
     
     return ( 
         <Recommen>
             <div className="title">
-                <p className={colors?'textDark':'textWhite2'}>Recommended for you</p>
+                <p className={theme === "light" ?'textDark':'textWhite2'}>Recommended for you</p>
             </div>
             <div className="scroll">
                 {items.map((i , index)=> {
@@ -106,8 +106,8 @@ const Recommended = (props) => {
                             </div>
                             <audio src={i.music}/>
                             <div className="content">
-                                <h1 className={colors?'textDark':'textWhite2'}>{i.name}</h1>
-                                <p className={colors?'textDark':'textWhite1'}>{i.title}</p>
+                                <h1 className={theme === "light" ?'textDark':'textWhite2'}>{i.name}</h1>
+                                <p className={theme === "light" ?'textDark':'textWhite1'}>{i.title}</p>
                             </div>
                         </div>
                     )

@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import Next from './svg/next.jsx';
-import Prev from './svg/prev.jsx';
-import Pause from './svg/pause.jsx';
-import { useContext, useEffect, useRef, useState } from "react";
+import Next from '@assets/svg/next.jsx';
+import Prev from '@assets/svg/prev.jsx';
+import Pause from '@assets/svg/pause.jsx';
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import { NavLink } from "react-router-dom";
-import Context from "../../context/context.jsx";
+import { useAppContext } from "../../context/app/app-context.jsx";
 
 const Playing = styled.div({
     position:'fixed',
@@ -100,7 +100,7 @@ const Playing = styled.div({
 
 const Play = (props) => {
 
-    const {colors} = useContext(Context) 
+    const {theme} = useAppContext() ;
 
     const [play , setPlay] = useState(false);
 
@@ -172,7 +172,7 @@ const Play = (props) => {
     return props.currentMusic && ( 
         <Playing >
             <div className='slider-container'>
-                <div className={colors?'progress-bar-cover bgDark':'progress-bar-cover bgWhite'} style={{ 
+                <div className={theme === "light" ?'progress-bar-cover bgDark':'progress-bar-cover bgWhite'} style={{ 
                     width:`${progressBarWidth}px`,
                  }}></div>
                 <div className="thumb" ref={thumbRef} style={{ 
@@ -189,19 +189,19 @@ const Play = (props) => {
 
             onTimeUpdate={getCurrDuration}
             ></audio>
-            <div className={colors?'bgWhite playing':'bgDark playing'}>
+            <div className={theme === "light" ?'bgWhite playing':'bgDark playing'}>
                 <NavLink to={`/playing_now/${props.currentMusic.id}`} state={data} className="flexStart" onClick={()=> props.onMusicClick(data)}>
                         <div className="img">
                             <img src={props?.currentMusic?.img} alt="" />
                         </div>
                         <div className="content">
-                            <p className={colors?'textDark':'textWhite'}>{props?.currentMusic?.name}</p>
-                            <small className={colors?'textDark':'textLight'}>{props?.currentMusic?.title}</small>
+                            <p className={theme === "light" ?'textDark':'textWhite'}>{props?.currentMusic?.name}</p>
+                            <small className={theme === "light" ?'textDark':'textLight'}>{props?.currentMusic?.title}</small>
                         </div>
                 </NavLink>
                 <div className="flexEnd">
                     <div className="pointer"><Next/></div>
-                    <div className="pointer">{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'18px' }} className={colors?'textDark':'textWhite'} icon={faPlayCircle}/>}</div>
+                    <div className="pointer">{play?<Pause pauseAudio={pauseAudio}/>:<FontAwesomeIcon onClick={startAudio} style={{ fontSize:'18px' }} className={theme === "light" ?'textDark':'textWhite'} icon={faPlayCircle}/>}</div>
                     <div className="pointer"><Prev/></div>
                 </div>
             </div>

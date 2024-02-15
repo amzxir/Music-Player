@@ -7,6 +7,7 @@ import img5 from './img/5.png'
 import img6 from './img/5.png'
 import { useContext } from "react";
 import Context from "../../../context/context";
+import { useAppContext } from "../../../context/app/app-context";
 
 
 
@@ -88,12 +89,12 @@ const items = [
 
 const Playist = (props) => {
 
-    const {colors} = useContext(Context)
+    const { theme } = useAppContext();
 
     return ( 
         <Plist>
             <div className="title">
-                <p className={colors?'textDark':'textWhite2'}>My Playlist</p>
+                <p className={theme === "light" ?'textDark':'textWhite2'}>My Playlist</p>
             </div>
             <div className="scroll">
                 {items.map((i , index)=> {
@@ -104,8 +105,8 @@ const Playist = (props) => {
                             </div>
                             <audio src={i.music}/>
                             <div className="content">
-                                <h1 className={colors?'textDark':'textWhite2'}>{i.name}</h1>
-                                <p className={colors?'textDark':'textWhite1'}>{i.title}</p>
+                                <h1 className={theme === "light" ?'textDark':'textWhite2'}>{i.name}</h1>
+                                <p className={theme === "light" ?'textDark':'textWhite1'}>{i.title}</p>
                             </div>
                         </div>
                     )
