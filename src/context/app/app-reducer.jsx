@@ -12,6 +12,12 @@ const appReducer = (state, action) => {
                 sidebar: !state.sidebar
             }
         }
+        case "CHANGE_MUSIC": {
+            return {
+                ...state,
+                currentMusic: action.payload
+            }
+        }
 
     }
 }

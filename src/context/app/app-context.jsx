@@ -6,6 +6,7 @@ const AppContext = createContext();
 const inistialState = {
     theme: localStorage.getItem("theme") || 'light',
     sidebar: false,
+    currentMusic:{},
 }
 
 const AppProvider = ({ children }) => {
@@ -20,12 +21,16 @@ const AppProvider = ({ children }) => {
         dispatch({ type: "CHANGE_SIDEBAR" })
     }
 
+    const chnageMusic = (music) => {
+        dispatch({ type:"CHANGE_MUSIC" , payload:music })
+    } 
+
     useEffect(() => {
         localStorage.setItem("theme", state.theme)
     }, [state.theme])
 
     return (
-        <AppContext.Provider value={{ ...state, changeTheme, changeSidebar }}>
+        <AppContext.Provider value={{ ...state, changeTheme, changeSidebar , chnageMusic }}>
             {children}
         </AppContext.Provider>
     )

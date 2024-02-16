@@ -26,6 +26,14 @@ body{
   background-color: var(--white);
 }
 
+.text-dark{
+  color: var(--dark);
+}
+
+.text-white{
+  color: var(--white);
+}
+
 #root{
     color: var(--white);
     position: relative;
