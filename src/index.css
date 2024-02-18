@@ -235,3 +235,36 @@ a{
   user-select: none;
   pointer-events: none;
 }
+
+.menu-music-open {
+  height: 215px;
+  /* background:var(--white); */
+  transform: translateY(70%);
+  transition: all 1s ease;
+}
+
+.menu-music-close {
+  height: 660px;
+  /* background: var(--white); */
+  transform: translateY(0%);
+  transition: all 1s ease;
+}
+
+.playing-open{
+  display: block;
+  padding: 0rem 2rem;
+}
+
+.playing-close{
+  display: flex;
+  flex-wrap: row;
+  align-items: center;
+}
+
+.d-none{
+  display: none;
+}
+
+.d-block{
+  display: block;
+}

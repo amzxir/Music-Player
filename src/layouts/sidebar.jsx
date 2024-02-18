@@ -110,7 +110,7 @@ const Sidebar = (props) => {
     if (pathname === "/play_list") return null;
     if (pathname === '/world_artist') return null;
     return (
-        <Nav className={`bg-${theme ? 'White' : 'Dark'}`}>
+        <Nav className={`bg-${theme === "light" ? 'White' : 'Dark'}`}>
             <div id="alignItems">
                 <button className="btn pointer" onClick={changeSidebar}><MenuSvg /></button>
                 <button className="btn pointer"><Search /></button>

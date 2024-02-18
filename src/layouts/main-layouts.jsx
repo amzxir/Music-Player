@@ -2,16 +2,20 @@ import { Outlet } from "react-router-dom";
 import { useAppContext } from "../context/app/app-context";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
+import Play from "../components/playing/playing";
 
 const MainLayouts = () => {
 
-    const { theme } = useAppContext();
+    const { theme, currentMusic } = useAppContext();
 
-    return(
+    return (
         <div id={theme}>
-            <Navbar/>
-            <Sidebar/>
-            <Outlet/>
+            <Navbar />
+            <Sidebar />
+            <Outlet />
+            {
+                !!currentMusic ? <Play /> : ''
+            }
         </div>
     )
 }

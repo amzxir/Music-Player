@@ -18,6 +18,12 @@ const appReducer = (state, action) => {
                 currentMusic: action.payload
             }
         }
+        case "CHNAGE_PLAYING": {
+            return {
+                ...state,
+                open: !state.open
+            }
+        }
 
     }
 }

@@ -4,10 +4,11 @@ import playlist from "../db/playlist";
 import RecommendList from "../features/music/components/recommend-list";
 import PlayList from "../features/music/components/play-list";
 import { useAppContext } from "../context/app/app-context";
+import Play from "../components/playing/playing";
 
 const Musics = () => {
 
-    const { theme } = useAppContext();
+    const { theme , currentMusic } = useAppContext();
 
     const [recommends, setRecommends] = useState([]);
     const [playList, setPlayList] = useState([]);
